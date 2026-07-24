@@ -5,62 +5,195 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Legal & Trust — CHIHIZA</title>
-  <meta name="description" content="CHIHIZA International — Legal transparency, regulatory compliance, and trust for investors.">
+  <!-- Open Graph -->
+  <meta property="og:title" content="CHIHIZA Secure Investment Framework">
+  <meta property="og:description" content="Legal transparency, regulatory compliance, and trust for investors. Free download.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chihiza.com/legacy">
+  <meta property="og:image" content="proyectos/about-hero.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+  <meta name="description" content="CHIHIZA Secure Investment Framework — Legal transparency, regulatory compliance, and trust for investors. Free download.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
   <style>
-    /* LEGACY GALLERY */
-    .legacy-gallery {
+    /* LEGACY PAGE */
+    .legacy-hero {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .legacy-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .legacy-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.15);
+    }
+
+    .legacy-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .legacy-hero-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--accent-dim);
+    }
+
+    .legacy-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      color: var(--white);
+    }
+
+    .legacy-hero-sub {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+    }
+
+    .legacy-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* LEGACY CONTENT */
+    .legacy-content {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      max-width: 1000px;
+      grid-template-columns: 2fr 1fr;
+      gap: 5rem;
+      padding: 7rem 3rem;
+      max-width: 1100px;
       margin: 0 auto;
     }
 
-    .legacy-item {
-      overflow: hidden;
+    .legacy-text h2 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      line-height: 1.3;
+    }
+
+    .legacy-text p {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 2;
+      margin-bottom: 1.5rem;
+    }
+
+    .legacy-sidebar {
+      position: sticky;
+      top: 120px;
+      align-self: start;
+    }
+
+    .legacy-card {
+      background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 4px;
-      transition: border-color 0.3s var(--ease);
+      padding: 2.5rem;
     }
 
-    .legacy-item:hover {
-      border-color: var(--accent);
+    .legacy-card-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--white);
+      margin-bottom: 1.5rem;
     }
 
-    .legacy-item img {
+    .legacy-card-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legacy-card-item:last-child {
+      border-bottom: none;
+    }
+
+    .legacy-card-num {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--accent);
+      flex-shrink: 0;
+      width: 28px;
+    }
+
+    .legacy-card-text {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .legacy-card .btn {
       width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.6s var(--ease-out);
+      justify-content: center;
+      margin-top: 2rem;
     }
 
-    .legacy-item:hover img {
-      transform: scale(1.02);
-    }
-
-    .legacy-intro {
+    /* CTA */
+    .legacy-cta {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
       text-align: center;
-      max-width: 700px;
-      margin: 0 auto 4rem;
+      padding: 6rem 3rem;
     }
 
-    .legacy-intro .section-title {
-      margin-bottom: 1rem;
-    }
-
-    .legacy-intro .section-desc {
-      margin: 0 auto;
+    .legacy-cta .section-inner {
       max-width: 600px;
     }
 
     @media (max-width: 768px) {
-      .legacy-gallery {
+      .legacy-content {
         grid-template-columns: 1fr;
-        gap: 1rem;
+        gap: 3rem;
+        padding: 4rem 1.5rem;
+      }
+
+      .legacy-sidebar {
+        position: static;
+      }
+
+      .legacy-cta {
+        padding: 4rem 1.5rem;
       }
     }
   </style>
@@ -72,7 +205,8 @@
   <header class="header">
     <a href="index.html" class="logo">CHIHIZA</a>
     <nav class="nav">
-      <a href="index.html">Projects</a>
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
       <a href="about.html">About</a>
       <a href="legacy.html">Legal</a>
       <a href="guide.html">Guide</a>
@@ -87,73 +221,84 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero" style="min-height: 55vh;">
-    <div class="hero-content">
-      <span class="hero-tag">Legal & Trust</span>
-      <h1 class="hero-title">Transparency is not optional.<br>It is foundational.</h1>
-      <p class="hero-sub">We operate with full regulatory compliance, legal clarity, and institutional transparency — because trust is built on documentation, not promises.</p>
+  <section class="legacy-hero">
+    <div class="legacy-hero-bg">
+      <img src="proyectos/about-hero.png" alt="CHIHIZA Legal Framework">
+    </div>
+    <div class="legacy-hero-content">
+      <span class="legacy-hero-tag">Free Download</span>
+      <h1 class="legacy-hero-title">Secure Investment Framework</h1>
+      <p class="legacy-hero-sub">Our complete legal and operational documentation for investors. Transparency, compliance, and trust — all in one document.</p>
+      <div class="legacy-actions">
+        <a href="assets/CHIHIZA Secure Investment Framework.pdf" download class="btn btn-primary">Download PDF</a>
+        <a href="#legacy-about" class="btn btn-outline">Learn More</a>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- LEGAL CONTENT -->
-  <section class="section">
-    <div class="section-inner">
-
-      <div class="legacy-intro fade-in">
-        <span class="section-tag">Our Commitment</span>
-        <h2 class="section-title">Legal Framework & Compliance</h2>
-        <p class="section-desc">Every project, every contract, every transaction follows established legal protocols. Below you will find our institutional documentation, regulatory compliance records, and operational transparency materials.</p>
+  <!-- CONTENT -->
+  <section class="legacy-content fade-in" id="legacy-about">
+    <div class="legacy-text">
+      <span class="section-tag">The Framework</span>
+      <h2>Everything you need to verify before investing</h2>
+      <p>This is not a marketing brochure. This is a comprehensive legal and operational document that outlines exactly how CHIHIZA structures, manages, and protects investor capital across all projects.</p>
+      <p>Whether you are a first-time investor or an experienced portfolio manager, this framework provides the transparency you need to make an informed decision. We believe that trust is built on documentation — not promises.</p>
+      <p>Inside you will find our corporate structure, legal entities, regulatory compliance records, investor protection protocols, financial controls, and operational procedures. Every detail is documented because we operate with zero ambiguity.</p>
+      <p>This framework is free because our goal is not to sell you something. Our goal is to earn your trust through radical transparency — whether that trust leads to an investment or not.</p>
+    </div>
+    <div class="legacy-sidebar">
+      <div class="legacy-card">
+        <div class="legacy-card-title">What's Inside</div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">01</span>
+          <span class="legacy-card-text">Corporate structure and legal entities across Colombia, Costa Rica, and Panama</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">02</span>
+          <span class="legacy-card-text">Investor protection protocols and capital safeguarding procedures</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">03</span>
+          <span class="legacy-card-text">Regulatory compliance records and licensing documentation</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">04</span>
+          <span class="legacy-card-text">Financial controls, audit procedures, and reporting standards</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">05</span>
+          <span class="legacy-card-text">Contract templates and legal agreement frameworks</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">06</span>
+          <span class="legacy-card-text">Operational procedures and project management protocols</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">07</span>
+          <span class="legacy-card-text">Risk mitigation strategies and contingency planning</span>
+        </div>
+        <div class="legacy-card-item">
+          <span class="legacy-card-num">08</span>
+          <span class="legacy-card-text">Due diligence checklist for prospective investors</span>
+        </div>
+        <a href="assets/CHIHIZA Secure Investment Framework.pdf" download class="btn btn-primary">Download PDF — Free</a>
       </div>
-
-      <div class="legacy-gallery fade-in">
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_26.png" alt="Legal document 1" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_33.png" alt="Legal document 2" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_36.png" alt="Legal document 3" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_39.png" alt="Legal document 4" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_42.png" alt="Legal document 5" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_45.png" alt="Legal document 6" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_48.png" alt="Legal document 7" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_51.png" alt="Legal document 8" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_53.png" alt="Legal document 9" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_26_57.png" alt="Legal document 10" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_27_00.png" alt="Legal document 11" loading="lazy">
-        </div>
-        <div class="legacy-item">
-          <img src="proyectos/LEGACY/ChatGPT Image 17 jul 2026, 19_27_04.png" alt="Legal document 12" loading="lazy">
-        </div>
-      </div>
-
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="section cta-section fade-in">
+  <section class="legacy-cta fade-in">
     <div class="section-inner">
       <span class="section-tag">Questions?</span>
       <h2 class="section-title">We welcome due diligence</h2>
-      <p class="section-desc">Transparency is not a burden — it is our standard. Ask us anything about our legal structure, compliance, or operational protocols.</p>
-      <a href="https://wa.me/573219931029?text=Hi%2C%20I%27d%20like%20to%20learn%20more%20about%20CHIHIZA%27s%20legal%20framework." target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
+      <p class="section-desc">Transparency is not a burden — it is our standard. After reviewing the framework, if you have questions about any specific topic, reach out. We'll point you in the right direction.</p>
+      <div class="legacy-actions" style="margin-top: 2rem;">
+        <a href="https://wa.me/573219931029?text=Hi%2C%20I%20downloaded%20your%20Investment%20Framework%20and%20have%20some%20questions." target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
+        <a href="contact.html" class="btn btn-outline">Contact Form</a>
+      </div>
     </div>
   </section>
 
@@ -166,14 +311,14 @@
       </div>
       <div class="footer-col">
         <h4>Projects</h4>
-        <a href="projects/el-mirador.html">El Mirador</a>
-        <a href="projects/rio-frio.html">Río Frío</a>
         <a href="projects/natauta.html">Natautá</a>
-        <a href="projects/nosara.html">Nosara</a>
+        <a href="projects/rio-frio.html">Río Frío</a>
+        <a href="projects/el-mirador.html">El Mirador</a>
         <a href="projects/costaverde.html">CostaVerde</a>
+        <a href="projects/nosara.html">Nosara</a>
       </div>
       <div class="footer-col">
-        <h4>Company</h4>
+        <h4>Resources</h4>
         <a href="about.html">About Us</a>
         <a href="legacy.html">Legal & Trust</a>
         <a href="guide.html">Guide</a>
@@ -182,7 +327,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span class="footer-copy">© 2026 CHIHIZA International. All rights reserved.</span>
+      <span class="footer-copy">&copy; 2026 CHIHIZA International. All rights reserved.</span>
       <div class="footer-socials">
         <a href="#">Instagram</a>
         <a href="#">LinkedIn</a>

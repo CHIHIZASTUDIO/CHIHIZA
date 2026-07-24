@@ -1,42 +1,434 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Projects — CHIHIZA</title>
-    <meta name="description" content="Minimal project listing for CHIHIZA." />
-    <link rel="stylesheet" href="./styles.css" />
-  </head>
-  <body>
-    <header class="topbar" aria-label="Main navigation">
-      <a class="brand" href="index.html" aria-label="Home">
-        <span class="brand-mark">MOX</span>
-        <span class="brand-line"></span>
-      </a>
-      <nav class="nav">
-        <a href="index.html">Home</a>
-      </nav>
-    </header>
 
-    <main class="projects-list" role="main">
-      <div class="projects-inner">
-        <a class="project-item" href="index.html#proyecto-1-detalle-1">
-          <img src="./proyectos/001/principal.png" alt="Project 1 preview" />
-          <div class="project-meta">
-            <div class="project-title">Project 1 — Refugio Rio Frio</div>
-            <div class="project-sub">Value: $825,000,000 COP · Rio Frio, Tabio</div>
-          </div>
-        </a>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — CHIHIZA</title>
+  <meta name="description" content="Explore all CHIHIZA development projects across Colombia, Costa Rica, and Panama. Eco-luxury investments from $95K-$500K.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="CHIHIZA Projects — Eco-Luxury Developments">
+  <meta property="og:description" content="Explore all CHIHIZA development projects across Colombia, Costa Rica, and Panama.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chihiza.com/projects">
+  <meta property="og:image" content="proyectos/about-hero.png">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .projects-hero {
+      position: relative;
+      width: 100%;
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--bg) 0%, #0d1a0f 50%, var(--bg) 100%);
+    }
 
-        <a class="project-item" href="index.html#proyecto-2-detalle-1">
-          <img src="./proyectos/002/principal.png" alt="Project Refugio Tropical La Vega" />
-          <div class="project-meta">
-            <div class="project-title">Refugio Tropical — La Vega, Cundinamarca</div>
-            <div class="project-sub">Rural residence with tropical landscape.</div>
-          </div>
-        </a>
+    .projects-hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      padding: 0 2rem;
+    }
+
+    .projects-filter {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.7rem 1.5rem;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-dim);
+    }
+
+    .projects-catalog {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
+      padding: 0 3rem;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .catalog-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.4s var(--ease);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .catalog-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-8px);
+    }
+
+    .catalog-image {
+      height: 240px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .catalog-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+
+    .catalog-card:hover .catalog-image img {
+      transform: scale(1.05);
+    }
+
+    .catalog-badge {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.4rem 0.8rem;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .catalog-info {
+      padding: 1.5rem;
+    }
+
+    .catalog-country {
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .catalog-name {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.3rem;
+    }
+
+    .catalog-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .catalog-location {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      margin-bottom: 1rem;
+    }
+
+    .catalog-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .catalog-price {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      color: var(--white);
+    }
+
+    .catalog-roi {
+      background: var(--accent-dim);
+      color: var(--accent);
+      padding: 0.3rem 0.7rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    .catalog-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.7rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-top: 1rem;
+      transition: gap 0.3s var(--ease);
+    }
+
+    .catalog-link:hover {
+      gap: 0.8rem;
+    }
+
+    .catalog-link::after {
+      content: '→';
+    }
+
+    @media (max-width: 768px) {
+      .projects-catalog {
+        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <a href="index.html" class="logo">CHIHIZA</a>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="legacy.html">Legal</a>
+      <a href="guide.html">Guide</a>
+      <a href="contact.html">Contact</a>
+      <a href="https://wa.me/573219931029" target="_blank" rel="noopener" class="nav-cta">WhatsApp</a>
+    </nav>
+    <button class="menu-toggle" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="projects-hero">
+    <div class="projects-hero-content">
+      <span class="hero-tag">All Projects</span>
+      <h1 class="hero-title">Our <span>Developments</span></h1>
+      <p class="hero-sub">Explore all CHIHIZA projects across Latin America. Each includes land, master plan, financial model, and full transparency.</p>
+    </div>
+  </section>
+
+  <!-- FILTER -->
+  <section class="section-small">
+    <div class="section-inner">
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="colombia">Colombia</button>
+        <button class="filter-btn" data-filter="costarica">Costa Rica</button>
+        <button class="filter-btn" data-filter="panama">Panama</button>
       </div>
-    </main>
+    </div>
+  </section>
 
-  </body>
+  <!-- PROJECTS CATALOG -->
+  <section class="section" style="padding-top: 0;">
+    <div class="projects-catalog">
+
+      <!-- NATAUTÁ -->
+      <a href="projects/natauta.html" class="catalog-card fade-in" data-country="colombia">
+        <div class="catalog-image">
+          <img src="proyectos/natauta/1.png" alt="Natautá">
+          <span class="catalog-badge">Available</span>
+        </div>
+        <div class="catalog-info">
+          <span class="catalog-country">Colombia</span>
+          <h3 class="catalog-name">Natautá</h3>
+          <p class="catalog-subtitle">Private Nature Reserve</p>
+          <p class="catalog-location">La Vega, Cundinamarca</p>
+          <div class="catalog-footer">
+            <span class="catalog-price">USD 95,000</span>
+            <span class="catalog-roi">Est. 18% IRR</span>
+          </div>
+          <span class="catalog-link">View Project</span>
+        </div>
+      </a>
+
+      <!-- RIO FRÍO -->
+      <a href="projects/rio-frio.html" class="catalog-card fade-in" data-country="colombia">
+        <div class="catalog-image">
+          <img src="proyectos/riofrio/1.png" alt="Río Frío">
+          <span class="catalog-badge">Available</span>
+        </div>
+        <div class="catalog-info">
+          <span class="catalog-country">Colombia</span>
+          <h3 class="catalog-name">Río Frío</h3>
+          <p class="catalog-subtitle">Mountain Forest Retreat</p>
+          <p class="catalog-location">Tabio, Cundinamarca</p>
+          <div class="catalog-footer">
+            <span class="catalog-price">USD 130,000</span>
+            <span class="catalog-roi">Est. 20% IRR</span>
+          </div>
+          <span class="catalog-link">View Project</span>
+        </div>
+      </a>
+
+      <!-- EL MIRADOR -->
+      <a href="projects/el-mirador.html" class="catalog-card fade-in" data-country="colombia">
+        <div class="catalog-image">
+          <img src="proyectos/el-mirador/1.png" alt="El Mirador">
+          <span class="catalog-badge">Available</span>
+        </div>
+        <div class="catalog-info">
+          <span class="catalog-country">Colombia</span>
+          <h3 class="catalog-name">El Mirador</h3>
+          <p class="catalog-subtitle">Panoramic Valley Residence</p>
+          <p class="catalog-location">Guatavita, Cundinamarca</p>
+          <div class="catalog-footer">
+            <span class="catalog-price">USD 268,000</span>
+            <span class="catalog-roi">Est. 22% IRR</span>
+          </div>
+          <span class="catalog-link">View Project</span>
+        </div>
+      </a>
+
+      <!-- COSTAVERDE -->
+      <a href="projects/costaverde.html" class="catalog-card fade-in" data-country="panama">
+        <div class="catalog-image">
+          <img src="proyectos/costaverde/1.png" alt="CostaVerde">
+          <span class="catalog-badge">Available</span>
+        </div>
+        <div class="catalog-info">
+          <span class="catalog-country">Panama</span>
+          <h3 class="catalog-name">CostaVerde</h3>
+          <p class="catalog-subtitle">Pacific Coastal Living</p>
+          <p class="catalog-location">Panama Oeste</p>
+          <div class="catalog-footer">
+            <span class="catalog-price">USD 220,000</span>
+            <span class="catalog-roi">Est. 21% IRR</span>
+          </div>
+          <span class="catalog-link">View Project</span>
+        </div>
+      </a>
+
+      <!-- NOSARA -->
+      <a href="projects/nosara.html" class="catalog-card fade-in" data-country="costarica">
+        <div class="catalog-image">
+          <img src="proyectos/nosara/nosara-cr.png" alt="Nosara">
+          <span class="catalog-badge">Available</span>
+        </div>
+        <div class="catalog-info">
+          <span class="catalog-country">Costa Rica</span>
+          <h3 class="catalog-name">Nosara</h3>
+          <p class="catalog-subtitle">Ocean & Jungle Living</p>
+          <p class="catalog-location">Guanacaste</p>
+          <div class="catalog-footer">
+            <span class="catalog-price">USD 285,000</span>
+            <span class="catalog-roi">Est. 19% IRR</span>
+          </div>
+          <span class="catalog-link">View Project</span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-image-section fade-in">
+    <div class="cta-image-bg">
+      <img src="proyectos/about-hero.png" alt="CHIHIZA">
+    </div>
+    <div class="cta-image-content">
+      <span class="section-tag">Interested in a Project?</span>
+      <h2 class="section-title">Let's Discuss Your Investment</h2>
+      <p class="section-desc" style="margin: 0 auto 3rem;">Our team is ready to answer your questions and provide detailed information.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/573219931029" target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
+        <a href="contact.html" class="btn btn-outline">Contact Form</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">CHIHIZA</div>
+        <p class="footer-text">Building ecological communities that honor land and life. Colombia · Costa Rica · Panama</p>
+      </div>
+      <div class="footer-col">
+        <h4>Projects</h4>
+        <a href="projects/natauta.html">Natautá</a>
+        <a href="projects/rio-frio.html">Río Frío</a>
+        <a href="projects/el-mirador.html">El Mirador</a>
+        <a href="projects/costaverde.html">CostaVerde</a>
+        <a href="projects/nosara.html">Nosara</a>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <a href="about.html">About Us</a>
+        <a href="legacy.html">Legal & Trust</a>
+        <a href="guide.html">Guide</a>
+        <a href="contact.html">Contact</a>
+        <a href="https://wa.me/573219931029" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 CHIHIZA International. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WHATSAPP FLOAT -->
+  <a href="https://wa.me/573219931029" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+  <script>
+    // Filter projects
+    document.querySelectorAll('.filter-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        // Update active state
+        document.querySelectorAll('.filter-btn').forEach(function(b) {
+          b.classList.remove('active');
+        });
+        this.classList.add('active');
+        
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.catalog-card').forEach(function(card) {
+          if (filter === 'all' || card.dataset.country === filter) {
+            card.style.display = '';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+
 </html>
