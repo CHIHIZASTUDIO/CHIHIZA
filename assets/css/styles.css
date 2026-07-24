@@ -28,6 +28,9 @@
   --accent-glow: rgba(107, 143, 113, 0.15);
   --white: #ffffff;
   --black: #1a1a1a;
+  --orange: #e8740e;
+  --orange-hover: #d06800;
+  --orange-light: #fff4e6;
   --whatsapp: #25d366;
   --whatsapp-hover: #20bd5a;
   --error: #c44;
@@ -135,17 +138,20 @@ img {
 }
 
 .nav-cta {
-  background: transparent;
-  border: 1px solid var(--accent);
-  color: var(--accent) !important;
+  background: var(--orange);
+  border: 1px solid var(--orange);
+  color: var(--white) !important;
   padding: 0.6rem 1.4rem;
   border-radius: 6px;
+  font-weight: 500;
   transition: all 0.3s var(--ease);
 }
 
 .nav-cta:hover {
-  background: var(--accent);
-  color: var(--white) !important;
+  background: var(--orange-hover);
+  border-color: var(--orange-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(232, 116, 14, 0.3);
 }
 
 /* Mobile menu toggle */
@@ -2211,6 +2217,13 @@ img {
   .nav a {
     font-size: 1.2rem;
     letter-spacing: 3px;
+  }
+
+  .nav .nav-cta {
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    padding: 0.8rem 2rem;
+    margin-top: 1rem;
   }
 
   .menu-toggle {
