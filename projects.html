@@ -6,204 +6,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects — CHIHIZA</title>
   <meta name="description" content="Explore all CHIHIZA development projects across Colombia, Costa Rica, and Panama. Eco-luxury investments from $95K-$500K.">
-  
+  <link rel="canonical" href="https://chihiza.com/projects">
   <!-- Open Graph -->
   <meta property="og:title" content="CHIHIZA Projects — Eco-Luxury Developments">
   <meta property="og:description" content="Explore all CHIHIZA development projects across Colombia, Costa Rica, and Panama.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chihiza.com/projects">
-  <meta property="og:image" content="proyectos/about-hero.png">
-  
+  <meta property="og:image" content="https://chihiza.com/proyectos/about-hero.png">
+  <meta name="twitter:card" content="summary_large_image">
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/styles.css">
-  <style>
-    .projects-hero {
-      position: relative;
-      width: 100%;
-      min-height: 60vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      background: linear-gradient(135deg, var(--bg) 0%, #0d1a0f 50%, var(--bg) 100%);
-    }
-
-    .projects-hero-content {
-      position: relative;
-      z-index: 1;
-      text-align: center;
-      max-width: 800px;
-      padding: 0 2rem;
-    }
-
-    .projects-filter {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-bottom: 4rem;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.7rem 1.5rem;
-      font-size: 0.75rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.3s var(--ease);
-    }
-
-    .filter-btn:hover,
-    .filter-btn.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-dim);
-    }
-
-    .projects-catalog {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 2rem;
-      padding: 0 3rem;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .catalog-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: all 0.4s var(--ease);
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .catalog-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-8px);
-    }
-
-    .catalog-image {
-      height: 240px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .catalog-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s var(--ease-out);
-    }
-
-    .catalog-card:hover .catalog-image img {
-      transform: scale(1.05);
-    }
-
-    .catalog-badge {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      background: var(--accent);
-      color: var(--bg);
-      padding: 0.4rem 0.8rem;
-      font-size: 0.65rem;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .catalog-info {
-      padding: 1.5rem;
-    }
-
-    .catalog-country {
-      font-size: 0.65rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-
-    .catalog-name {
-      font-family: var(--font-display);
-      font-size: 1.4rem;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-    }
-
-    .catalog-subtitle {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      margin-bottom: 0.3rem;
-    }
-
-    .catalog-location {
-      font-size: 0.8rem;
-      color: var(--text-dim);
-      margin-bottom: 1rem;
-    }
-
-    .catalog-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .catalog-price {
-      font-family: var(--font-display);
-      font-size: 1.2rem;
-      color: var(--white);
-    }
-
-    .catalog-roi {
-      background: var(--accent-dim);
-      color: var(--accent);
-      padding: 0.3rem 0.7rem;
-      font-size: 0.75rem;
-      font-weight: 500;
-    }
-
-    .catalog-link {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.7rem;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: 1rem;
-      transition: gap 0.3s var(--ease);
-    }
-
-    .catalog-link:hover {
-      gap: 0.8rem;
-    }
-
-    .catalog-link::after {
-      content: '→';
-    }
-
-    @media (max-width: 768px) {
-      .projects-catalog {
-        grid-template-columns: 1fr;
-        padding: 0 1.5rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -252,15 +70,15 @@
   <section class="section" style="padding-top: 0;">
     <div class="projects-catalog">
 
-      <!-- NATAUTÁ -->
+      <!-- NATAUTA -->
       <a href="projects/natauta.html" class="catalog-card fade-in" data-country="colombia">
         <div class="catalog-image">
-          <img src="proyectos/natauta/1.png" alt="Natautá">
+          <img src="proyectos/natauta/1.png" alt="Natauta" width="800" height="600" loading="lazy">
           <span class="catalog-badge">Available</span>
         </div>
         <div class="catalog-info">
           <span class="catalog-country">Colombia</span>
-          <h3 class="catalog-name">Natautá</h3>
+          <h3 class="catalog-name">Natauta</h3>
           <p class="catalog-subtitle">Private Nature Reserve</p>
           <p class="catalog-location">La Vega, Cundinamarca</p>
           <div class="catalog-footer">
@@ -271,15 +89,15 @@
         </div>
       </a>
 
-      <!-- RIO FRÍO -->
+      <!-- RIO FRIO -->
       <a href="projects/rio-frio.html" class="catalog-card fade-in" data-country="colombia">
         <div class="catalog-image">
-          <img src="proyectos/riofrio/1.png" alt="Río Frío">
+          <img src="proyectos/riofrio/1.png" alt="Rio Frio" width="800" height="600" loading="lazy">
           <span class="catalog-badge">Available</span>
         </div>
         <div class="catalog-info">
           <span class="catalog-country">Colombia</span>
-          <h3 class="catalog-name">Río Frío</h3>
+          <h3 class="catalog-name">Rio Frio</h3>
           <p class="catalog-subtitle">Mountain Forest Retreat</p>
           <p class="catalog-location">Tabio, Cundinamarca</p>
           <div class="catalog-footer">
@@ -293,7 +111,7 @@
       <!-- EL MIRADOR -->
       <a href="projects/el-mirador.html" class="catalog-card fade-in" data-country="colombia">
         <div class="catalog-image">
-          <img src="proyectos/el-mirador/1.png" alt="El Mirador">
+          <img src="proyectos/el-mirador/1.png" alt="El Mirador" width="800" height="600" loading="lazy">
           <span class="catalog-badge">Available</span>
         </div>
         <div class="catalog-info">
@@ -312,7 +130,7 @@
       <!-- COSTAVERDE -->
       <a href="projects/costaverde.html" class="catalog-card fade-in" data-country="panama">
         <div class="catalog-image">
-          <img src="proyectos/costaverde/1.png" alt="CostaVerde">
+          <img src="proyectos/costaverde/1.png" alt="CostaVerde" width="800" height="600" loading="lazy">
           <span class="catalog-badge">Available</span>
         </div>
         <div class="catalog-info">
@@ -331,7 +149,7 @@
       <!-- NOSARA -->
       <a href="projects/nosara.html" class="catalog-card fade-in" data-country="costarica">
         <div class="catalog-image">
-          <img src="proyectos/nosara/nosara-cr.png" alt="Nosara">
+          <img src="proyectos/nosara/nosara-cr.png" alt="Nosara" width="800" height="600" loading="lazy">
           <span class="catalog-badge">Available</span>
         </div>
         <div class="catalog-info">
@@ -353,7 +171,7 @@
   <!-- CTA -->
   <section class="cta-image-section fade-in">
     <div class="cta-image-bg">
-      <img src="proyectos/about-hero.png" alt="CHIHIZA">
+      <img src="proyectos/about-hero.png" alt="CHIHIZA" width="1920" height="1080" loading="lazy">
     </div>
     <div class="cta-image-content">
       <span class="section-tag">Interested in a Project?</span>
@@ -371,12 +189,12 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo">CHIHIZA</div>
-        <p class="footer-text">Building ecological communities that honor land and life. Colombia · Costa Rica · Panama</p>
+        <p class="footer-text">Building ecological communities that honor land and life. Colombia &middot; Costa Rica &middot; Panama</p>
       </div>
       <div class="footer-col">
         <h4>Projects</h4>
-        <a href="projects/natauta.html">Natautá</a>
-        <a href="projects/rio-frio.html">Río Frío</a>
+        <a href="projects/natauta.html">Nataut&aacute;</a>
+        <a href="projects/rio-frio.html">R&iacute;o Fr&iacute;o</a>
         <a href="projects/el-mirador.html">El Mirador</a>
         <a href="projects/costaverde.html">CostaVerde</a>
         <a href="projects/nosara.html">Nosara</a>
@@ -384,7 +202,7 @@
       <div class="footer-col">
         <h4>Resources</h4>
         <a href="about.html">About Us</a>
-        <a href="legacy.html">Legal & Trust</a>
+        <a href="legacy.html">Legal &amp; Trust</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html">Contact</a>
         <a href="https://wa.me/573219931029" target="_blank" rel="noopener">WhatsApp</a>
@@ -406,19 +224,18 @@
     </svg>
   </a>
 
-  <!-- Scripts -->
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
   <script src="assets/js/main.js"></script>
   <script>
-    // Filter projects
     document.querySelectorAll('.filter-btn').forEach(function(btn) {
       btn.addEventListener('click', function() {
-        // Update active state
         document.querySelectorAll('.filter-btn').forEach(function(b) {
           b.classList.remove('active');
         });
         this.classList.add('active');
-        
-        const filter = this.dataset.filter;
+        var filter = this.dataset.filter;
         document.querySelectorAll('.catalog-card').forEach(function(card) {
           if (filter === 'all' || card.dataset.country === filter) {
             card.style.display = '';
