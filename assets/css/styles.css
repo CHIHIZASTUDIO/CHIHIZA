@@ -31,6 +31,8 @@
   --orange: #e8740e;
   --orange-hover: #d06800;
   --orange-light: #fff4e6;
+  --fuchsia: #d946ef;
+  --fuchsia-hover: #c026d3;
   --whatsapp: #25d366;
   --whatsapp-hover: #20bd5a;
   --error: #c44;
@@ -2130,7 +2132,7 @@ img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  background: var(--orange);
+  background: var(--fuchsia);
   color: var(--white);
   border: none;
   padding: 0.6rem 1.4rem;
@@ -2140,21 +2142,21 @@ img {
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(232, 116, 14, 0.35);
+  box-shadow: 0 4px 16px rgba(217, 70, 239, 0.35);
   transition: all 0.3s var(--ease);
   font-family: 'Courier New', monospace;
   animation: pulse-glow 2s ease-in-out infinite;
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 16px rgba(232, 116, 14, 0.35); }
-  50% { box-shadow: 0 4px 24px rgba(232, 116, 14, 0.6); }
+  0%, 100% { box-shadow: 0 4px 16px rgba(217, 70, 239, 0.35); }
+  50% { box-shadow: 0 4px 24px rgba(217, 70, 239, 0.6); }
 }
 
 .team-tools-toggle:hover {
-  background: var(--orange-hover);
+  background: var(--fuchsia-hover);
   transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(232, 116, 14, 0.5);
+  box-shadow: 0 6px 24px rgba(217, 70, 239, 0.5);
 }
 
 .team-tools-overlay {
@@ -2252,8 +2254,8 @@ img {
 }
 
 .team-tool-card:hover {
-  border-color: var(--orange);
-  background: var(--orange-light);
+  border-color: var(--fuchsia);
+  background: rgba(217, 70, 239, 0.05);
   transform: translateX(4px);
 }
 
@@ -2262,7 +2264,7 @@ img {
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--orange);
+  background: var(--fuchsia);
   color: var(--white);
   display: flex;
   align-items: center;
@@ -2297,7 +2299,7 @@ img {
 }
 
 .team-tool-card:hover .tool-arrow {
-  color: var(--orange);
+  color: var(--fuchsia);
   transform: translate(2px, -2px);
 }
 
