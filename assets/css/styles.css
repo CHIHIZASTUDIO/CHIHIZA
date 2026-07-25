@@ -624,6 +624,852 @@ img {
 }
 
 /*============================
+   GEA WORKFLOW DIAGRAM
+============================*/
+
+.gea-workflow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 2rem 1rem;
+  overflow-x: auto;
+}
+
+.gea-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 100px;
+}
+
+.gea-step-icon {
+  width: 70px;
+  height: 70px;
+  margin-bottom: 0.75rem;
+  transition: transform 0.3s var(--ease);
+}
+
+.gea-step:hover .gea-step-icon {
+  transform: scale(1.1);
+}
+
+.gea-step-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.gea-step-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.gea-step-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  max-width: 100px;
+}
+
+.gea-arrow {
+  width: 40px;
+  flex-shrink: 0;
+  opacity: 0.5;
+}
+
+.gea-arrow svg {
+  width: 100%;
+  height: auto;
+}
+
+/*============================
+   GEA PILLAR CARDS
+============================*/
+
+.gea-pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.gea-pillar-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s var(--ease);
+  border: 1px solid var(--border-light);
+}
+
+.gea-pillar-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.gea-pillar-visual {
+  background: var(--bg-warm);
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.gea-pillar-visual svg {
+  display: block;
+  border-radius: 8px;
+}
+
+.gea-pillar-content {
+  padding: 1.5rem;
+}
+
+.gea-pillar-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.gea-pillar-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.gea-pillar-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.gea-pillar-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.gea-pillar-link {
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.gea-pillar-link:hover {
+  color: var(--accent-hover);
+}
+
+/*============================
+   SOCIAL PROOF
+============================*/
+
+.social-proof {
+  padding: 5rem 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.social-proof-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.social-proof-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.social-proof-header h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+
+.logos-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  margin-bottom: 4rem;
+  opacity: 0.5;
+}
+
+.logo-item {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.05em;
+}
+
+.testimonial-card {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.testimonial-info {
+  text-align: left;
+}
+
+.testimonial-name {
+  font-weight: 500;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/*============================
+   FOUNDER TEASER
+============================*/
+
+.founder-teaser {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 400px;
+}
+
+.founder-teaser-image {
+  background: var(--bg-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.founder-teaser-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.founder-teaser-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+
+.founder-teaser-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.founder-teaser-name {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.founder-teaser-role {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.founder-teaser-quote {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+/*============================
+   FOUNDER PAGE — NARRATIVE
+============================*/
+
+.founder-narrative {
+  columns: 1;
+  column-gap: 3rem;
+}
+
+.founder-narrative p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.founder-narrative p:first-child {
+  font-size: 1.2rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* Founder Quote Block */
+
+.founder-quote-block {
+  margin-top: 3rem;
+  padding: 2.5rem;
+  background: var(--bg-warm);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 12px 12px 0;
+}
+
+.founder-quote-text {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.6;
+  font-style: italic;
+  margin: 0;
+}
+
+/*============================
+   FOUNDER PAGE — TIMELINE
+============================*/
+
+.founder-timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem auto 0;
+  padding-left: 3rem;
+}
+
+.founder-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 3rem;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -3rem;
+  top: 0.5rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+.timeline-year {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+}
+
+.timeline-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/*============================
+   FOUNDER PAGE — CREDENTIALS
+============================*/
+
+.credentials-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.credential-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+}
+
+.credential-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--accent-light);
+}
+
+.credential-list {
+  list-style: none;
+}
+
+.credential-list li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.credential-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/*============================
+   RESEARCH PAGE
+============================*/
+
+.research-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 3rem;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-light);
+}
+
+.research-card-header {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.research-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  background: var(--accent-light);
+  color: var(--accent);
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.research-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.research-subtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.research-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light);
+  margin-bottom: 2rem;
+}
+
+.research-meta-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.research-meta-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.25rem;
+}
+
+.research-meta-value {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.research-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Research Abstract */
+
+.research-abstract {
+  columns: 1;
+  column-gap: 3rem;
+}
+
+.research-abstract p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  break-inside: avoid;
+}
+
+.research-abstract p:first-child {
+  font-size: 1.15rem;
+  color: var(--text);
+}
+
+.research-methods {
+  list-style: none;
+  padding: 1rem 0;
+}
+
+.research-methods li {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.research-methods li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+/* Research Findings */
+
+.research-findings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.research-finding-card {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--border-light);
+  transition: all 0.3s var(--ease);
+}
+
+.research-finding-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.research-finding-num {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+
+.research-finding-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.research-finding-card p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* Research Connection */
+
+.research-connection p {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.research-connection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.research-connection-item {
+  padding: 1.25rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-light);
+}
+
+.research-connection-item:nth-child(odd) {
+  background: var(--bg-warm);
+  border-color: var(--border);
+}
+
+.research-connection-item:nth-child(even) {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.research-connection-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.research-connection-value {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+/* Research List */
+
+.research-list {
+  margin-top: 2rem;
+}
+
+.research-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border-light);
+  margin-bottom: 1rem;
+  text-decoration: none;
+  transition: all 0.3s var(--ease);
+}
+
+.research-list-item:hover {
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--accent);
+}
+
+.research-list-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.research-list-content p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.research-list-arrow {
+  font-size: 1.5rem;
+  color: var(--accent);
+  flex-shrink: 0;
+  margin-left: 2rem;
+}
+
+/* Responsive Research */
+
+@media (max-width: 1024px) {
+  .research-meta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .research-findings-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .research-connection-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .research-card {
+    padding: 2rem;
+  }
+  
+  .research-meta {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .research-actions {
+    flex-direction: column;
+  }
+  
+  .research-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .research-list-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  
+  .research-list-arrow {
+    margin-left: 0;
+  }
+}
+
+/*============================
+   RESPONSIVE — GEA
+============================*/
+
+@media (max-width: 1024px) {
+  .gea-pillars-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .gea-workflow {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .gea-arrow {
+    display: none;
+  }
+  
+  .gea-step {
+    min-width: 80px;
+  }
+  
+  .founder-teaser {
+    grid-template-columns: 1fr;
+  }
+  
+  .founder-teaser-image {
+    min-height: 300px;
+  }
+  
+  .founder-teaser-content {
+    padding: 2rem;
+  }
+  
+  .founder-quote-block {
+    padding: 1.5rem;
+  }
+  
+  .founder-quote-text {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gea-step-icon {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .gea-step-label {
+    font-size: 0.8rem;
+  }
+  
+  .gea-step-desc {
+    font-size: 0.7rem;
+    max-width: 80px;
+  }
+  
+  .gea-pillar-title {
+    font-size: 1.5rem;
+  }
+  
+  .testimonial-quote {
+    font-size: 1.1rem;
+  }
+}
+
+/*============================
    PROJECTS LIST
 =============================*/
 
@@ -1842,6 +2688,49 @@ img {
 
 .email-capture-form button:hover {
   background: var(--accent-hover);
+}
+
+/* Lead capture form */
+.lead-capture-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.lead-capture-form .form-group {
+  margin-bottom: 0.75rem;
+}
+
+.lead-capture-form input,
+.lead-capture-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  background: var(--white);
+  color: var(--text);
+}
+
+.lead-capture-form input:focus,
+.lead-capture-form select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.lead-capture-form select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%235a5a55' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+}
+
+.email-capture-note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 /* CTA sections for guide/legacy */

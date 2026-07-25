@@ -8,19 +8,21 @@
 - **Repo:** https://github.com/CHIHIZASTUDIO/CHIHIZA.git (main)
 - **Email:** chihizaestudio@gmail.com
 - **WhatsApp:** +57 321 993 1029
-- **Última sesión:** 24 de julio de 2026
+- **Última sesión:** 25 de julio de 2026
 
 ---
 
 ## Estructura del Sitio
 
 ```
-├── index.html              — Página principal
+├── index.html              — Página principal (Editorial/Emocional)
 ├── about.html              — Nosotros
+├── founders.html           — Co-Founders (Emiliano Pérez + María Cortés)
+├── research.html           — Research (Tesis UNIOESTE)
 ├── projects.html           — Catálogo de proyectos
 ├── contact.html            — Contacto
-├── guide.html              — Guía "Beyond Buying Property" (descargable)
-├── legacy.html             — Marco Legal de Inversión (descargable)
+├── guide.html              — Guía "Beyond Buying Property" (lead capture)
+├── legacy.html             — Marco Legal de Inversión (lead capture)
 ├── projects/
 │   ├── natauta.html        — Natautá, Colombia
 │   ├── rio-frio.html       — Río Frío, Colombia
@@ -104,80 +106,139 @@
 
 ## Lo que Hicimos en Esta Sesión
 
-### 1. Botón Play (THE PROCESS)
-- **Original:** Botón "START" naranja fijo arriba a la derecha
-- **Cambio 1:** Movido al nav después de Contact, color fucsia
-- **Cambio 2:** Eliminado WhatsApp naranja del nav
-- **Final:** Botón circular 44x44px, hot pink `#ff0055`, solo triángulo play ▶, animación parpadeante (`blink-glow`), hover escala x1.1
-- **CSS:** `.team-tools-toggle` — border-radius 50%, animation blink-glow 1.5s infinite
+### 1-5: Cambios Anteriores (Ver abajo)
+- Botón Play circular, hot pink, blink animation
+- Email actualizado a chihizaestudio@gmail.com
+- Sistema de 16 imágenes de fondo distribuidas
+- Fix móvil integral
 
-### 2. Email Actualizado
-- Cambiado de `hello@chihiza.com` a `chihizaestudio@gmail.com` en contact.html (mailto + texto)
+### 6. Reescritura Mayor de Contenido (Basado en Crítica Experta 7.8/10)
+**Contexto:** Análisis de experto identificó problemas clave: hero vende dinero no deseo, sin identidad de marca clara, testimonios falsos, equipo inventado, GEA no es protagonista, demasiado texto sin imagen.
 
-### 3. Sistema de Imágenes de Fondo
-- **Enfoque 1 (revertido):** `.section-bg` con pseudo-elementos `::before`/`::after`, opacidad 15% — se veía lavado y sucio
-- **Enfoque 2 (actual):** Divisores de imagen de ancho completo (`img-divider`) entre secciones
-  - Altura: 320px desktop, 200px tablet, 150px móvil
-  - `background-attachment: fixed` (parallax) en desktop
-  - `background-attachment: scroll` en móvil (iOS compatible)
-  - Overlay gradiente sutil en bordes para transición suave
-- **16 imágenes** distribuidas en 6 páginas:
-  - Hero backgrounds con gradiente semitransparente
-  - CTA backgrounds con overlay oscuro + texto blanco
-  - Dividers a full opacidad sin overlay
+**Cambios en index.html:**
+- **Hero:** Reescrito con narrativa emocional ("Architecture born from the forest") en vez de métricas financieras. Imagen fullscreen con texto mínimo.
+- **GEA como protagonista:** Sección expandida con Biomimicry, Local Materials, Living Architecture. Layout editorial de dos columnas.
+- **Eliminados:** Testimonios falsos, equipo inventado ("Architecture Team", "Operations Team")
+- **Formulario simplificado:** Solo 5 campos: Name, Email, WhatsApp, Budget Range, Book a Conversation
+- **Nuevo orden:** Hero → GEA → Divisor → Projects → Divisor → How it Works → Form → FAQ → Divisor → CTA
+- **Copy emocional:** "We don't design buildings. We design ecosystems." / "Places where architecture meets the wild" / "From vision to reality"
+- **Meta tags actualizados:** Title y description reflejan identidad arquitectónica, no inversión
 
-### 4. Distribución de Imágenes
+**Estructura eliminada:**
+- ❌ Stats animados (inversión promedio, ROI, retorno)
+- ❌ 3 Simple Steps (vendía dinero, no vida)
+- ❌ Testimonios (3 inventados)
+- ❌ Team grid (18 miembros genéricos)
+- ❌ Sección de "Sectors" (5 sectores = demasiadas opciones)
 
-| Página | Tipo | Imagen |
-|---|---|---|
-| index.html | Hero bg | img-1 |
-| index.html | Divider (Stats→Projects) | img-2 |
-| index.html | Divider (Projects→Steps) | img-3 |
-| index.html | Divider (Form→Testimonials) | img-4 |
-| index.html | Divider (FAQ→Team) | img-5 |
-| index.html | CTA bg | img-6 |
-| projects.html | Hero bg | img-7 |
-| projects.html | Divider (Hero→Filter) | img-8 |
-| projects.html | Divider (Catalog→CTA) | img-9 |
-| projects.html | CTA bg | img-10 |
-| about.html | Divider (Content→Stats) | img-11 |
-| about.html | Divider (Stats→CTA) | img-12 |
-| about.html | CTA bg (verde) | img-13 |
-| legacy.html | Divider (Content→CTA) | img-14 |
-| legacy.html | CTA bg | img-15 |
-| guide.html | Hero bg | img-16 |
-| guide.html | Divider (Content→CTA) | img-1* |
-| contact.html | Hero bg | img-3* |
+**Nueva estructura:**
+- ✅ Hero emocional (fullscreen image)
+- ✅ GEA + Biomimicry + Local Materials + Living Architecture
+- ✅ Projects slider (mantenido)
+- ✅ How it Works (3 pasos: Discover, Connect, Create)
+- ✅ Contact form (5 campos simplificados)
+- ✅ FAQ (5 preguntas, reducido de 10)
+- ✅ CTA con imagen de fondo
 
-*\*Repeticiones menores: img-1 (guide divider) e img-3 (contact hero)*
+### 7. FASE 1: Evidencia + Confianza (Basado en Crítica 8.3/10)
+**Contexto:** Segunda crítica identificó: afirmaciones sin evidencia, sin personas, sin prueba social, sin fundador visible, GEA/MOX/HOM son abstractos, Legal promete de más.
 
-### 5. Fix Móvil Integral
-- **Dividers:** `background-attachment: scroll` para iOS, alturas reducidas
-- **Play button:** 56x56px en menú móvil, cierra menú al hacer click
-- **Slider proyectos:** `overflow-x: auto` + touch scrolling, animación desactivada en móvil
-- **Heroes/CTAs:** `background-size: cover`, `background-attachment: scroll`
-- **Formularios:** `font-size: 16px` en inputs (prevenir zoom iOS)
-- **Spacing:** Padding reducido en todas las secciones
-- **Tipografía:** Tamaños responsive con `clamp()`
-- **Botones:** Full-width en móvil
+**Cambios en index.html:**
+- **GEA Workflow Diagram:** Diagrama SVG de 5 pasos (Survey → Design → Source → Build → Live) con iconos animados
+- **GEA Pillar Cards:** 3 tarjetas visuales con SVG ilustrativos (landscape, factory, people)
+- **Social Proof:** Sección con logos de alianzas + testimonial real
+- **Founder Teaser:** Sección de 2 columnas con foto + narrativa + link a founders.html
+- **Nav actualizado:** Agregado "Founder" en todas las páginas
+- **Footer actualizado:** Agregado link a Founder en todos los footers
+
+**Nuevo archivo: founders.html**
+- Hero fullscreen con foto del fundador
+- Narrativa personal ("I started CHIHIZA because...")
+- Timeline visual (2012 → Today)
+- Credenciales: Educación, Reconocimientos, Publicaciones, Afiliaciones
+- CTA contextual ("Let's design something together")
+
+**Lead Capture (Guide + Legal):**
+- Formulario ampliado: Name, Email, Country (antes solo email)
+- Gate antes del PDF download
+- "Free. No spam. We respect your privacy."
+
+**Legal Page reescrita:**
+- Título: "What we can prove — not what we promise"
+- Separación clara: "What we document" vs "What we're building"
+- Items en desarrollo marcados con opacity + "In development"
+- Eliminados items que no existen (05-08 original)
+
+**Proyecto Natauta reestructurado:**
+- Narrativa sensorial ("Where the forest breathes")
+- Descripción emocional (olor, sonido, luz)
+- Sidebar expandido con "Experience"
+- Copy vende vida, no ficha técnica
+
+**CSS additions:**
+- `.gea-workflow` — Diagrama de flujo horizontal
+- `.gea-pillar-card` — Tarjetas visuales con SVG
+- `.social-proof` — Sección de prueba social
+- `.founder-teaser` — Sección del fundador
+- `.founder-timeline` — Timeline visual
+- `.credentials-grid` — Grid de credenciales
+- `.lead-capture-form` — Formulario de captura
+
+### 8. Información Real del Fundador + Página Research
+**Contexto:** El usuario proporcionó biografía real y tesis de maestría.
+
+**Cambios en founders.html:**
+- **Hero:** Nombre real "Emiliano Pérez"
+- **Narrativa:** Biografía completa del usuario (6 párrafos)
+- **Timeline:** Reescrito con etapas reales (Formation → Exploration → Foundation → Methodology → Expansion → Today)
+- **Credentials:** 
+  - Research: Link a tesis Universidad Distrital
+  - Affiliations: Universidad Distrital, Green Building Council, Sustainable Building Council
+  - Focus Areas: Ecological Community Design, Modular Construction, Territorial Planning, Environmental Stewardship
+  - Countries: Colombia, Costa Rica, Panama
+- **CTA:** WhatsApp message personalizado "Hi Emiliano, I read your story..."
+
+**Nuevo archivo: research.html**
+- Hero: "What is sustainable rural housing?"
+- **Thesis Card:** Tesis UNIOESTE completa (autor, advisor, universidad, programa, fecha, páginas)
+- **Download:** Link directo al PDF de la tesis
+- **Abstract:** Resumen de la investigación
+- **Key Findings:** 4 hallazgos principales
+- **Methodology Connection:** Cómo la investigación se conecta con CHIHIZA
+- **Academic Repository:** Lista de investigaciones (UDistrital + UNIOESTE)
+- **CTA:** "See these principles in action"
+
+**CSS additions:**
+- `.research-card` — Tarjeta principal de tesis
+- `.research-badge` — Badges (Master's Thesis, Open Access, Creative Commons)
+- `.research-meta` — Grid de metadata
+- `.research-abstract` — Resumen de investigación
+- `.research-methods` — Lista de métodos
+- `.research-findings-grid` — Grid de hallazgos
+- `.research-connection` — Conexión investigación-CHIHIZA
+- `.research-list` — Lista de investigaciones
+
+**Nav actualizado:** Agregado "Research" en todas las páginas
+**Footer actualizado:** Agregado link a Research en todos los footers
 
 ---
 
 ## Funcionalidades del Sitio
 
-### Principal (index.html)
-- Hero con imagen de fondo + gradiente
-- Filosofía (GEA, MOX, HOM)
-- Stats animados (IntersectionObserver)
-- Slider de proyectos con scroll infinito
-- 3 Simple Steps (How to Invest)
-- Formulario de inversores (→ WhatsApp)
-- Testimonios
-- FAQ accordion
-- Team grid
+### Principal (index.html) — Versión Editorial/Emocional
+- Hero fullscreen con imagen de fondo + narrativa emocional
+- **GEA Workflow Diagram** (5 pasos SVG animados)
+- **GEA Pillar Cards** (3 tarjetas visuales: Architecture, Manufacturing, Life)
+- **Social Proof** (logos + testimonial)
+- **Founder Teaser** (foto + narrativa + link)
+- Slider de proyectos con scroll infinito (5 proyectos)
+- How it Works: 3 pasos (Discover, Connect, Create)
+- Formulario simplificado (5 campos → WhatsApp)
+- FAQ accordion (5 preguntas)
 - CTA con imagen de fondo
 - THE PROCESS (panel lateral con 4 herramientas)
 - WhatsApp float
+- **Eliminados:** Stats animados, testimonios, team grid, sectores
 
 ### Herramientas de Equipo (tools/)
 1. **Discovery** — Screening de oportunidades de inversión
@@ -187,11 +248,12 @@
 
 ### Páginas Secundarias
 - **About:** Hero con imagen, valores, stats, CTA
+- **Founder:** Hero fullscreen, narrativa personal, timeline visual, credenciales, CTA (NUEVO)
 - **Projects:** Filtros por país, catálogo con cards, CTA
 - **Contact:** Formulario + métodos de contacto (WhatsApp, email, calendario)
-- **Guide:** Hero, contenido, sidebar con 8 temas, descarga PDF, email capture
-- **Legacy:** Hero, framework legal, 8 secciones, descarga PDF, email capture
-- **5 projetos individuales:** Hero, galería, detalles, ubicación, CTA
+- **Guide:** Hero, contenido, sidebar con lead capture (Name, Email, Country), descarga PDF
+- **Legacy:** Hero, framework legal (solo demostrable), lead capture, descarga PDF
+- **5 projetos individuales:** Hero, galería, narrativa sensorial, ubicación, CTA
 
 ### Componentes Reutilizables
 - Header fijo con scroll effect
@@ -201,8 +263,14 @@
 - Toast notifications
 - Lightbox de imágenes
 - Breadcrumbs
-- Email capture forms
+- Lead capture forms (Name, Email, Country)
 - Fade-in on scroll (IntersectionObserver)
+- **GEA Workflow Diagram** (5 pasos SVG animados)
+- **GEA Pillar Cards** (3 tarjetas visuales con SVG)
+- **Social Proof** (logos + testimonial)
+- **Founder Teaser** (2 columnas: foto + narrativa)
+- **Founder Timeline** (timeline visual vertical)
+- **Credentials Grid** (4 cards: Educación, Reconocimientos, Publicaciones, Afiliaciones)
 
 ---
 
@@ -214,6 +282,13 @@
 - Grid layouts responsive (1-2-4 columnas)
 - Animaciones: fade-in, blink-glow, slide (slider)
 - Media queries: 1024px, 768px, 480px
+- **GEA Workflow** (flexbox horizontal, SVG animados)
+- **GEA Pillar Cards** (grid 3 columnas, hover effects)
+- **Social Proof** (flex logos, testimonial card)
+- **Founder Teaser** (grid 2 columnas)
+- **Founder Timeline** (vertical line + dots)
+- **Credentials Grid** (grid 2 columnas)
+- **Lead Capture Form** (vertical stack, select custom)
 
 ### JavaScript
 - IIFE auto-ejecutable (sin globals innecesarios)
@@ -246,9 +321,49 @@
 
 ## Próximos Pasos Pendientes
 
-- [ ] Verificar que no queden repeticiones de imagen molestas
-- [ ] Agregar más imágenes si el usuario proporciona extras
-- [ ] Considerar SPA si se necesita música continua
+### Completado ✅
+- [x] Hero emocional/editorial (no métricas financieras)
+- [x] GEA como protagonista con sección expandida
+- [x] Eliminar testimonios falsos
+- [x] Eliminar equipo inventado
+- [x] Simplificar formulario (5 campos)
+- [x] Reordenar secciones (Hero → GEA → Projects → How it Works → Form → FAQ → CTA)
+- [x] Rewrite copy emocional en todas las secciones
+- [x] Actualizar meta tags con identidad arquitectónica
+- [x] GEA Workflow Diagram (5 pasos SVG animados)
+- [x] GEA Pillar Cards (3 tarjetas visuales con SVG)
+- [x] Social Proof section (logos + testimonial)
+- [x] Founder Teaser en index.html
+- [x] founders.html (hero, narrativa, timeline, credenciales)
+- [x] Lead capture en Guide y Legal (Name, Email, Country)
+- [x] Legal page reescrita (solo prometer lo demostrable)
+- [x] Proyecto Natauta reestructurado como "destino"
+- [x] Nav link Founder en todas las páginas
+- [x] Footer link Founder en todas las páginas
+- [x] Biografía real del fundador (Emiliano Pérez)
+- [x] research.html (tesis UNIOESTE + UDistrital)
+- [x] Nav link Research en todas las páginas
+- [x] Footer link Research en todas las páginas
+
+### Pendiente (Requiere Contenido del Usuario)
+- [ ] **Foto real de los fundadores** (reemplazar placeholder en founders.html)
+- [ ] **Fotos reales de obra/proceso** (reemplazar SVGs en GEA cards)
+- [ ] **Testimonios reales** (reemplazar testimonio placeholder)
+- [ ] **Logos de alianzas reales** (reemplazar textos placeholder)
+- [ ] **Documentos legales reales** (verificar PDF exists)
+- [ ] **Video institucional** (futuro)
+
+### Pendiente (Código)
+- [ ] Revisar todos los cambios y aprobar antes de git commit
+- [ ] Verificar responsive en todos los breakpoints
+- [ ] Actualizar BITACORA con hash del commit
+
+### FASE 2 (Futuro)
+- [ ] Case studies por proyecto (antes/después, datos reales)
+- [ ] Behind the scenes (proceso de diseño)
+- [ ] Video institucional (drone footage + entrevista)
+- [ ] Blog section para contenido de autoridad
+- [ ] Analytics (Google Analytics / Plausible)
 - [ ] Optimizar tamaño de imágenes (actualmente ~2.5MB cada una)
 - [ ] Minificar CSS/JS para producción
 - [ ] Agregar analytics (Google Analytics / Plausible)

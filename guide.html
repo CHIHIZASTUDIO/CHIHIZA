@@ -33,6 +33,8 @@
       <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="about.html">About</a>
+      <a href="founders.html">Founders</a>
+      <a href="research.html">Research</a>
       <a href="legacy.html">Legal</a>
       <a href="guide.html">Guide</a>
       <a href="contact.html">Contact</a>
@@ -107,14 +109,35 @@
         </div>
         <a href="assets/guide.pdf" download class="btn btn-primary">Download PDF — Free</a>
 
-        <!-- Email Capture -->
+        <!-- Lead Capture -->
         <div class="email-capture">
-          <h4>Get Updates</h4>
-          <p>Receive new guides and investment insights directly to your inbox.</p>
-          <div class="email-capture-form" id="guideEmailForm">
-            <input type="email" placeholder="your@email.com" required>
-            <button type="submit">Subscribe</button>
-          </div>
+          <h4>Get the Guide</h4>
+          <p>Enter your details to download the free guide and receive updates.</p>
+          <form class="lead-capture-form" id="guideLeadForm">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <select name="country" required>
+                <option value="" disabled selected>Your Country</option>
+                <option>United States</option>
+                <option>Canada</option>
+                <option>United Kingdom</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Spain</option>
+                <option>Colombia</option>
+                <option>Costa Rica</option>
+                <option>Panama</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Download Guide</button>
+          </form>
+          <p class="email-capture-note">Free. No spam. We respect your privacy.</p>
         </div>
       </div>
     </div>
@@ -154,6 +177,8 @@
       <div class="footer-col">
         <h4>Resources</h4>
         <a href="about.html">About Us</a>
+        <a href="founders.html">Founders</a>
+        <a href="research.html">Research</a>
         <a href="legacy.html">Legal &amp; Trust</a>
         <a href="guide.html">Guide</a>
         <a href="contact.html">Contact</a>
