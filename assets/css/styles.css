@@ -2572,6 +2572,379 @@ img {
   }
 }
 
+/*============================
+   MOBILE FIXES — Comprehensive
+============================== */
+
+@media (max-width: 768px) {
+  /* Image Dividers */
+  .img-divider {
+    height: 200px;
+    background-attachment: scroll;
+  }
+
+  /* Play button in mobile nav */
+  .nav .team-tools-toggle {
+    width: 56px;
+    height: 56px;
+    margin-top: 1rem;
+  }
+
+  .nav .team-tools-toggle svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  /* Hero sections with bg images */
+  .hero,
+  .projects-hero,
+  .guide-hero,
+  .legacy-hero {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+  }
+
+  /* CTA sections with bg images */
+  .cta-image-section,
+  .legacy-cta,
+  .guide-cta {
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: scroll !important;
+  }
+
+  /* Projects slider — horizontal swipe */
+  .projects-slider {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding: 0 1.5rem;
+  }
+
+  .projects-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider-track {
+    display: flex;
+    gap: 1.2rem;
+    padding-bottom: 1rem;
+    width: max-content;
+    animation: none;
+  }
+
+  .slider-card {
+    flex: 0 0 280px;
+    min-width: 280px;
+  }
+
+  /* Hero content */
+  .hero-content {
+    padding: 0 1.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .hero-tag {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+    padding: 0.4rem 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+
+  /* Sections */
+  .section {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-tag {
+    font-size: 0.6rem;
+    letter-spacing: 3px;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .section-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+  }
+
+  /* Stats */
+  .stats {
+    padding: 3rem 1.5rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .stat {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+  }
+
+  /* Invest Steps */
+  .invest-steps {
+    gap: 1.5rem;
+  }
+
+  .invest-step {
+    padding: 1.5rem;
+  }
+
+  .invest-step-num {
+    font-size: 2rem;
+  }
+
+  /* Form */
+  .invest-form-card {
+    padding: 1.5rem;
+  }
+
+  .form-group label {
+    font-size: 0.75rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px; /* Prevents iOS zoom */
+  }
+
+  /* Testimonials */
+  .testimonial-card {
+    padding: 1.5rem;
+  }
+
+  .testimonial-quote {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  /* FAQ */
+  .faq-question h3 {
+    font-size: 0.95rem;
+  }
+
+  /* Team */
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .team-card {
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  /* Contact */
+  .contact-grid {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-method {
+    padding: 1rem;
+  }
+
+  .contact-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* CTA image section */
+  .cta-image-section {
+    padding: 4rem 1.5rem;
+    min-height: auto;
+  }
+
+  .cta-image-content .section-title {
+    font-size: 1.6rem;
+  }
+
+  /* Projects hero */
+  .projects-hero {
+    min-height: 50vh;
+  }
+
+  .projects-hero-content {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Projects catalog */
+  .projects-catalog {
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+  }
+
+  .catalog-card {
+    flex-direction: column;
+  }
+
+  .catalog-image {
+    height: 200px;
+  }
+
+  .catalog-info {
+    padding: 1.2rem;
+  }
+
+  .catalog-name {
+    font-size: 1.2rem;
+  }
+
+  /* Guide / Legacy content */
+  .guide-content,
+  .legacy-content {
+    grid-template-columns: 1fr;
+    padding: 3rem 1.5rem;
+  }
+
+  .guide-text,
+  .legacy-text {
+    padding: 0;
+  }
+
+  .guide-text h2,
+  .legacy-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .guide-sidebar,
+  .legacy-sidebar {
+    position: static;
+  }
+
+  .guide-cta,
+  .legacy-cta {
+    padding: 3rem 1.5rem;
+  }
+
+  .guide-hero,
+  .legacy-hero {
+    min-height: 60vh;
+  }
+
+  .guide-hero-content,
+  .legacy-hero-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .guide-hero-title,
+  .legacy-hero-title {
+    font-size: 2rem;
+  }
+
+  /* Email capture */
+  .email-capture-form {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .email-capture-form input,
+  .email-capture-form button {
+    width: 100%;
+  }
+
+  /* WhatsApp float */
+  .whatsapp-float {
+    bottom: 1.2rem;
+    right: 1.2rem;
+    width: 52px;
+    height: 52px;
+  }
+
+  .whatsapp-float svg {
+    width: 26px;
+    height: 26px;
+  }
+
+  /* Footer */
+  .footer {
+    padding: 3rem 1.5rem;
+  }
+
+  .footer-inner {
+    gap: 2rem;
+  }
+
+  .footer-col {
+    gap: 0.6rem;
+  }
+
+  .footer-col a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .stat-number {
+    font-size: 1.6rem;
+  }
+
+  .img-divider {
+    height: 150px;
+  }
+
+  .slider-card {
+    flex: 0 0 260px;
+    min-width: 260px;
+  }
+
+  .catalog-card {
+    margin: 0;
+  }
+
+  .invest-step {
+    padding: 1.2rem;
+  }
+
+  .team-card {
+    padding: 1.2rem;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-title {
     font-size: 2.2rem;

@@ -44,6 +44,16 @@
       });
     });
 
+    // Also close menu when clicking play button
+    var teamToggle = document.getElementById('teamToolsToggle');
+    if (teamToggle) {
+      teamToggle.addEventListener('click', function () {
+        menuToggle.classList.remove('active');
+        nav.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    }
+
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && nav.classList.contains('active')) {
         menuToggle.classList.remove('active');
