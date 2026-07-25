@@ -6,7 +6,7 @@
 <title>CHIHIZA Financial Model</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#08080d;--card:#111118;--card2:#1a1a26;--accent:#c8a97e;--accent2:#8b7355;--green:#2ecc71;--red:#e74c3c;--blue:#3498db;--yellow:#f1c40f;--orange:#e67e22;--purple:#9b59b6;--text:#f0ece4;--text2:#7a7670;--border:#222233;--r:12px}
+:root{--bg:#f8f7f4;--card:#ffffff;--card2:#f3f1ec;--accent:#6b8f71;--accent2:#5a7e60;--green:#2ecc71;--red:#e74c3c;--blue:#3498db;--yellow:#f1c40f;--orange:#e8740e;--purple:#9b59b6;--text:#2c2c2c;--text2:#5a5a55;--border:#e8e5df;--r:12px}
 html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .app{max-width:620px;margin:0 auto;padding:16px;padding-bottom:90px;min-height:100vh}
 .logo{text-align:center;padding:16px 0 8px}
@@ -38,10 +38,10 @@ html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color
 .rl{display:flex;justify-content:space-between;font-size:8px;color:var(--text2)}
 .btn{display:block;width:100%;padding:12px;border:none;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
 .btn:active{transform:scale(.97)}
-.bp{background:var(--accent);color:#08080d}
+.bp{background:var(--accent);color:#ffffff}
 .bs{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 .row{display:flex;gap:8px;margin-top:14px}.row .btn{flex:1}
-.nb{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,13,.95);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 16px;display:none;z-index:50}
+.nb{position:fixed;bottom:0;left:0;right:0;background:rgba(248,247,244,.95);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 16px;display:none;z-index:50}
 .nb.show{display:flex;gap:8px;justify-content:center}
 .nb .btn{flex:1;max-width:200px}
 .mg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px 0}
@@ -64,7 +64,7 @@ html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color
 .chart-container canvas{width:100%!important;height:auto!important}
 .tab-bar{display:flex;gap:4px;margin-bottom:12px;overflow-x:auto}
 .tab{padding:8px 12px;background:var(--card2);border:1px solid var(--border);border-radius:8px;font-size:10px;font-weight:600;color:var(--text2);cursor:pointer;white-space:nowrap;transition:.2s}
-.tab.active{background:var(--accent);color:#08080d;border-color:var(--accent)}
+.tab.active{background:var(--accent);color:#ffffff;border-color:var(--accent)}
 .tab-content{display:none}.tab-content.active{display:block}
 .sens-row{display:flex;gap:6px;margin:6px 0}
 .sens-card{flex:1;padding:10px;border-radius:8px;text-align:center;border:1px solid var(--border)}
@@ -321,7 +321,7 @@ angle+=slice});
 var ly=w*0.55;
 labels.forEach(function(l,i){
 ctx.fillStyle=colors[i];ctx.fillRect(10,ly+i*14,8,8);
-ctx.fillStyle='#7a7670';ctx.font='9px Segoe UI';ctx.textAlign='left';
+ctx.fillStyle='#5a5a55';ctx.font='9px Segoe UI';ctx.textAlign='left';
 ctx.fillText(l+' ($'+(data[i]/1e6).toFixed(1)+'M)',22,ly+i*14+7)})
 }
 
@@ -339,11 +339,11 @@ var maxVal=Math.max.apply(null,data.map(function(d){return Math.abs(d.value)}));
 if(maxVal===0)maxVal=1;
 data.forEach(function(d,i){
 var y=10+i*(barH+gap);
-ctx.fillStyle='#7a7670';ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.textBaseline='middle';
+ctx.fillStyle='#5a5a55';ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.textBaseline='middle';
 ctx.fillText(d.label,labelW-8,y+barH/2);
-ctx.fillStyle='#1a1a26';ctx.fillRect(labelW,y,barW,barH);
+ctx.fillStyle='#f3f1ec';ctx.fillRect(labelW,y,barW,barH);
 var fillW=(Math.abs(d.value)/maxVal)*barW;
-ctx.fillStyle=colors[i]||'#c8a97e';ctx.fillRect(labelW,y,fillW,barH);
+ctx.fillStyle=colors[i]||'#6b8f71';ctx.fillRect(labelW,y,fillW,barH);
 ctx.fillStyle='#fff';ctx.font='bold 9px Segoe UI';ctx.textAlign='left';
 ctx.fillText('$'+(d.value/1e6).toFixed(1)+'M',labelW+fillW+6,y+barH/2)})
 }
@@ -449,9 +449,9 @@ h+='</table></div></div>';
 document.getElementById('resultados').innerHTML=h;
 
 setTimeout(function(){
-drawPie('chart-inv',[inv.terreno,inv.diseno,inv.obra,inv.cont],['#c8a97e','#3498db','#2ecc71','#e74c3c'],['Terreno','Diseno','Construccion','Contingencia']);
-drawPie('chart-chi',[chi.disc,chi.dd,chi.diseno,chi.gerencia,chi.comision,chi.otros],['#c8a97e','#3498db','#2ecc71','#9b59b6','#f1c40f','#e67e22'],['Discovery','DD','Diseno','Gerencia','Comision','Otros']);
-drawBars('chart-sens',[{label:'Optimista',value:sens.best.util},{label:'Base',value:sens.base.util},{label:'Conservador',value:sens.worst.util}],['#2ecc71','#c8a97e','#e74c3c']);
+drawPie('chart-inv',[inv.terreno,inv.diseno,inv.obra,inv.cont],['#6b8f71','#3498db','#2ecc71','#e74c3c'],['Terreno','Diseno','Construccion','Contingencia']);
+drawPie('chart-chi',[chi.disc,chi.dd,chi.diseno,chi.gerencia,chi.comision,chi.otros],['#6b8f71','#3498db','#2ecc71','#9b59b6','#f1c40f','#e8740e'],['Discovery','DD','Diseno','Gerencia','Comision','Otros']);
+drawBars('chart-sens',[{label:'Optimista',value:sens.best.util},{label:'Base',value:sens.base.util},{label:'Conservador',value:sens.worst.util}],['#2ecc71','#6b8f71','#e74c3c']);
 },150)
 }
 

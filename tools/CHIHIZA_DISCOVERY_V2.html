@@ -6,7 +6,7 @@
 <title>CHIHIZA Discovery V2 | Investment Intelligence</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#08080d;--card:#111118;--card2:#1a1a26;--accent:#c8a97e;--accent2:#8b7355;--green:#2ecc71;--red:#e74c3c;--blue:#3498db;--yellow:#f1c40f;--orange:#e67e22;--purple:#9b59b6;--text:#f0ece4;--text2:#7a7670;--border:#222233;--r:12px}
+:root{--bg:#f8f7f4;--card:#ffffff;--card2:#f3f1ec;--accent:#6b8f71;--accent2:#5a7e60;--green:#2ecc71;--red:#e74c3c;--blue:#3498db;--yellow:#f1c40f;--orange:#e8740e;--purple:#9b59b6;--text:#2c2c2c;--text2:#5a5a55;--border:#e8e5df;--r:12px}
 html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
 .app{max-width:620px;margin:0 auto;padding:16px;padding-bottom:90px;min-height:100vh}
 .logo{text-align:center;padding:16px 0 8px}
@@ -44,12 +44,12 @@ html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color
 .rl{display:flex;justify-content:space-between;font-size:8px;color:var(--text2)}
 .btn{display:block;width:100%;padding:12px;border:none;border-radius:var(--r);font-size:13px;font-weight:600;cursor:pointer;transition:.2s;text-align:center}
 .btn:active{transform:scale(.97)}
-.bp{background:var(--accent);color:#08080d}
+.bp{background:var(--accent);color:#ffffff}
 .bs{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 .bg{background:var(--green);color:#fff}
 .br{background:var(--red);color:#fff}
 .row{display:flex;gap:8px;margin-top:14px}.row .btn{flex:1}
-.nb{position:fixed;bottom:0;left:0;right:0;background:rgba(8,8,13,.95);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 16px;display:none;z-index:50}
+.nb{position:fixed;bottom:0;left:0;right:0;background:rgba(248,247,244,.95);backdrop-filter:blur(10px);border-top:1px solid var(--border);padding:10px 16px;display:none;z-index:50}
 .nb.show{display:flex;gap:8px;justify-content:center}
 .nb .btn{flex:1;max-width:200px}
 .tr{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--border)}.tr:last-child{border:none}
@@ -816,7 +816,7 @@ drawBars('chart-grade',gradeData,gradeColors);
 
 // Pie chart for budget
 const budgetData=[c.terreno,c.construccion,c.diseno,c.direccion,c.permisos,c.contingencia];
-const budgetColors=['#c8a97e','#2ecc71','#3498db','#9b59b6','#e67e22','#e74c3c'];
+const budgetColors=['#6b8f71','#2ecc71','#3498db','#9b59b6','#e8740e','#e74c3c'];
 const budgetLabels=['Terreno','Construccion','Diseno','Direccion','Permisos','Contingencia'];
 drawPie('chart-budget',budgetData,budgetColors,budgetLabels);
 
@@ -983,7 +983,7 @@ angle+=slice});
 let ly=w-20;
 labels.forEach((l,i)=>{
 ctx.fillStyle=colors[i];ctx.fillRect(10,ly-8+i*14,8,8);
-ctx.fillStyle='#7a7670';ctx.font='9px Segoe UI';ctx.textAlign='left';
+ctx.fillStyle='#5a5a55';ctx.font='9px Segoe UI';ctx.textAlign='left';
 ctx.fillText(l+' ($'+(data[i]/1e6).toFixed(0)+'M)',22,ly+i*14)})}
 
 function drawRadar(canvasId,data,labels){
@@ -1012,7 +1012,7 @@ ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);
 ctx.strokeStyle='rgba(200,169,126,0.2)';ctx.stroke();
 const lx=cx+Math.cos(a)*(r+14);
 const ly=cy+Math.sin(a)*(r+14);
-ctx.fillStyle='#7a7670';ctx.font='8px Segoe UI';ctx.textAlign='center';ctx.textBaseline='middle';
+ctx.fillStyle='#5a5a55';ctx.font='8px Segoe UI';ctx.textAlign='center';ctx.textBaseline='middle';
 ctx.fillText(labels[i],lx,ly)});
 ctx.beginPath();
 data.forEach((v,i)=>{
@@ -1022,14 +1022,14 @@ const x=cx+Math.cos(a)*dr;const y=cy+Math.sin(a)*dr;
 i===0?ctx.moveTo(x,y):ctx.lineTo(x,y)});
 ctx.closePath();
 ctx.fillStyle='rgba(200,169,126,0.2)';ctx.fill();
-ctx.strokeStyle='#c8a97e';ctx.lineWidth=2;ctx.stroke();
+ctx.strokeStyle='#6b8f71';ctx.lineWidth=2;ctx.stroke();
 data.forEach((v,i)=>{
 const a=-Math.PI/2+step*i;
 const dr=r*(v.max>0?v.obs/v.peso:0);
 const x=cx+Math.cos(a)*dr;const y=cy+Math.sin(a)*dr;
 ctx.beginPath();ctx.arc(x,y,4,0,Math.PI*2);
-ctx.fillStyle='#c8a97e';ctx.fill();
-ctx.strokeStyle='#08080d';ctx.lineWidth=2;ctx.stroke()})}
+ctx.fillStyle='#6b8f71';ctx.fill();
+ctx.strokeStyle='#e8e5df';ctx.lineWidth=2;ctx.stroke()})}
 
 function drawBars(canvasId,data,colors){
 const canvas=document.getElementById(canvasId);if(!canvas)return;
@@ -1043,9 +1043,9 @@ ctx.scale(dpr,dpr);
 const barH=14;const gap=10;const labelW=90;const barW=w-labelW-40;
 data.forEach((v,i)=>{
 const y=10+i*(barH+gap);
-ctx.fillStyle='#7a7670';ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.textBaseline='middle';
+ctx.fillStyle='#5a5a55';ctx.font='9px Segoe UI';ctx.textAlign='right';ctx.textBaseline='middle';
 ctx.fillText(v.label,labelW-8,y+barH/2);
-ctx.fillStyle='#1a1a26';
+ctx.fillStyle='#f3f1ec';
 ctx.fillRect(labelW,y,barW,barH);
 const fillW=barW*(v.value/100);
 ctx.fillStyle=colors[i]||'#c8a97e';
@@ -1062,7 +1062,7 @@ canvas.width=w*dpr;canvas.height=120*dpr;
 canvas.style.width=w+'px';canvas.style.height='120px';
 ctx.scale(dpr,dpr);
 const values=[worst.roi,base.roi,best.roi];
-const colors=['#e74c3c','#c8a97e','#2ecc71'];
+const colors=['#e74c3c','#6b8f71','#2ecc71'];
 const labels=['Conservador','Base','Optimista'];
 const barW=(w-40)/3;
 const maxVal=Math.max(...values);
@@ -1074,7 +1074,7 @@ ctx.fillStyle=colors[i];
 ctx.fillRect(x+10,y,barW-20,barH);
 ctx.fillStyle=colors[i];ctx.font='bold 12px Segoe UI';ctx.textAlign='center';
 ctx.fillText(v.toFixed(0)+'%',x+barW/2,y-8);
-ctx.fillStyle='#7a7670';ctx.font='8px Segoe UI';
+ctx.fillStyle='#5a5a55';ctx.font='8px Segoe UI';
 ctx.fillText(labels[i],x+barW/2,105)})}
 
 updProg();updP();updA();

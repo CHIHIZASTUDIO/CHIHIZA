@@ -5,20 +5,20 @@
 }
 
 :root {
-    --bg: #08080d;
-    --card: #111118;
-    --card2: #1a1a26;
-    --accent: #c8a97e;
-    --accent2: #8b7355;
+    --bg: #f8f7f4;
+    --card: #ffffff;
+    --card2: #f3f1ec;
+    --accent: #6b8f71;
+    --accent2: #5a7e60;
     --green: #2ecc71;
     --red: #e74c3c;
     --blue: #3498db;
     --yellow: #f1c40f;
-    --orange: #e67e22;
+    --orange: #e8740e;
     --purple: #9b59b6;
-    --text: #f0ece4;
-    --text2: #7a7670;
-    --border: #222233;
+    --text: #2c2c2c;
+    --text2: #5a5a55;
+    --border: #e8e5df;
     --r: 12px;
 }
 
@@ -99,11 +99,11 @@ button {
 
 .btn-primary {
     background: var(--accent);
-    color: #08080d;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
-    background: #d4b88a;
+    background: #5a7e60;
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(200,169,126,0.3);
 }
