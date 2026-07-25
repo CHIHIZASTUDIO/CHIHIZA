@@ -2125,38 +2125,24 @@ img {
 ============================= */
 
 .team-tools-toggle {
-  position: fixed;
-  top: 1.5rem;
-  right: 12rem;
-  z-index: 1100;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   background: var(--fuchsia);
   color: var(--white);
   border: none;
   padding: 0.6rem 1.4rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(217, 70, 239, 0.35);
-  transition: all 0.3s var(--ease);
   font-family: 'Courier New', monospace;
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 16px rgba(217, 70, 239, 0.35); }
-  50% { box-shadow: 0 4px 24px rgba(217, 70, 239, 0.6); }
+  transition: all 0.3s var(--ease);
 }
 
 .team-tools-toggle:hover {
   background: var(--fuchsia-hover);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 24px rgba(217, 70, 239, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(217, 70, 239, 0.3);
 }
 
 .team-tools-overlay {
@@ -2377,14 +2363,6 @@ img {
 
   .header.scrolled {
     padding: 0.8rem 1.5rem;
-  }
-
-  .team-tools-toggle {
-    top: auto;
-    bottom: 6rem;
-    right: 1.5rem;
-    font-size: 0.6rem;
-    padding: 0.5rem 1rem;
   }
 
   .nav {
