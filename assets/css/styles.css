@@ -3891,6 +3891,16 @@ img {
   .team-card {
     padding: 1.2rem;
   }
+
+  .founder-photo-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .founder-photo-grid img {
+    max-width: 200px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 480px) {
