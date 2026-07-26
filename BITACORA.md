@@ -8,29 +8,25 @@
 - **Repo:** https://github.com/CHIHIZASTUDIO/CHIHIZA.git (main)
 - **Email:** chihizaestudio@gmail.com
 - **WhatsApp:** +57 321 993 1029
-- **Última sesión:** 25 de julio de 2026
+- **Última sesión:** 26 de julio de 2026
 
 ---
 
 ## Estructura del Sitio
 
 ```
-├── index.html              — Página principal (Editorial/Emocional)
-├── about.html              — Nosotros
-├── founders.html           — Co-Founders (Emiliano Pérez + María Cortés)
-├── research.html           — Research (Tesis UNIOESTE)
-├── projects.html           — Catálogo de proyectos
+├── index.html              — Página principal (Hero + Founder Teaser + How it Works + Form + FAQ)
+├── about.html              — About + Team unificado (Why We Exist, Emiliano, María, Julián, Credentials)
+├── process.html            — Our Process (7 pasos: Discovery → Territory → Masterplan → Architecture → Engineering → Construction → Delivery)
+├── research.html           — Research (5 tesis, "From Research to Practice")
+├── projects.html           — Catálogo de proyectos (solo Montvento)
 ├── contact.html            — Contacto
-├── guide.html              — Guía "Beyond Buying Property" (lead capture)
-├── legacy.html             — Marco Legal de Inversión (lead capture)
+├── guide.html              — Guía "Beyond Buying Property" (lead capture, free after registration)
+├── legacy.html             — Marco Legal de Inversión (lead capture, free after registration)
 ├── projects/
-│   ├── natauta.html        — Natautá, Colombia
-│   ├── rio-frio.html       — Río Frío, Colombia
-│   ├── el-mirador.html     — El Mirador, Colombia
-│   ├── costaverde.html     — CostaVerde, Panamá
-│   └── nosara.html         — Nosara, Costa Rica
+│   └── montvento.html      — Montvento Case Study 001 (deepened: Problem, Design Decisions, What We Learned)
 ├── assets/
-│   ├── css/styles.css      — Estilos globales (~3000 líneas)
+│   ├── css/styles.css      — Estilos globales (~3880 líneas)
 │   ├── js/main.js          — Lógica principal
 │   ├── favicon.svg         — Favicon
 │   ├── images/bg/          — 16 imágenes de fondo (img-1 a img-16)
@@ -42,11 +38,9 @@
 │   ├── CHIHIZA_FINANCIAL_MODEL.html — Modelo financiero
 │   └── digital-twin-campestre/       — Digital Twin (HTML+CSS+JS)
 └── proyectos/              — Imágenes de proyectos
-    ├── natauta/
-    ├── riofrio/
-    ├── el-mirador/
-    ├── costaverde/
-    ├── nosara/
+    ├── montvento/          — 5 imágenes de Montvento
+    ├── team/
+    │   └── emiliano.png    — Foto real de Emiliano
     ├── about-hero.png
     └── images-back/        — Imágenes fuente para backgrounds
 ```
@@ -344,19 +338,60 @@
 - [x] research.html (tesis UNIOESTE + UDistrital)
 - [x] Nav link Research en todas las páginas
 - [x] Footer link Research en todas las páginas
+- [x] Unificación About+Team (about.html absorbe founders.html)
+- [x] Eliminación de founders.html
+- [x] Nuevo process.html (7 pasos metodológicos)
+- [x] Nav simplificada: eliminado "Team", agregado "Process"
+- [x] Footer simplificado: About + Process
+- [x] Montvento profundizado: Problem, Design Decisions, What We Learned
+- [x] Research conectado con "This directly led to..." en cada tesis
+- [x] Guide: "Free Download" → "Free After Registration"
+- [x] Legacy: "Free Download" → "Free After Registration"
+- [x] Contact: Proyectos dropdown actualizado (solo Montvento)
+- [x] Costa Rica/Panamá eliminados de todos los dropdowns
 
 ### Pendiente (Requiere Contenido del Usuario)
-- [ ] **Foto real de los fundadores** (reemplazar placeholder en founders.html)
-- [ ] **Fotos reales de obra/proceso** (reemplazar SVGs en GEA cards)
-- [ ] **Testimonios reales** (reemplazar testimonio placeholder)
-- [ ] **Logos de alianzas reales** (reemplazar textos placeholder)
+- [ ] **Foto real de Emiliano** (ya en proyectos/team/emiliano.png, integrada en about.html)
+- [ ] **Foto real de María** (pendiente)
+- [ ] **Foto real de Julián David** (pendiente)
+- [ ] **Fotos reales de obra/proceso** (reemplazar renders en Montvento)
+- [ ] **Video corto de proceso** (futuro)
 - [ ] **Documentos legales reales** (verificar PDF exists)
-- [ ] **Video institucional** (futuro)
 
 ### Pendiente (Código)
-- [ ] Revisar todos los cambios y aprobar antes de git commit
 - [ ] Verificar responsive en todos los breakpoints
 - [ ] Actualizar BITACORA con hash del commit
+- [ ] Agregar CSS para process.html timeline si es necesario
+
+### 9. FASE 3: Estructura Unificada + Profundización (Basado en Crítica 9.1/10 — 26 jul 2026)
+**Contexto:** Tercera crítica experta identificó: demasiadas páginas (8 para empresa pequeña), About y Team separados sin razón, falta de "Why We Founders", Projects vacíos, Guide contradicción ("free download" vs formulario), Legal sobrepromete.
+
+**Cambios estructurales:**
+- **Unificación About+Team:** about.html absorbe founders.html → página unificada con "Why We Exist" + 3 perfiles + credenciales + quote blocks. founders.html eliminado.
+- **Nuevo: process.html:** Timeline visual de 7 pasos (Discovery → Territory Analysis → Masterplan → Architecture → Engineering → Construction → Delivery). Cada paso con narrativa editorial y contexto de metodología CHIHIZA.
+- **Nav simplificada:** Home | Projects | About | Process | Research | Legal | Guide | Contact (eliminado "Team" link de todas las páginas)
+- **Footer simplificado:** About + Process reemplazan About Us + Team
+
+**Profundización Montvento (Case Study 001):**
+- Nuevo: "The Problem" — desafíos reales del sitio (pendiente, sol, viento, acceso, suelo)
+- Nuevo: "Design Decisions" — decisiones específicas (orientación, aleros, ventilación, materiales, cimentación)
+- Nuevo: "What We Learned" — 4 lecciones concretas (sitio sabe mejor, materiales locales no son compromiso, diseño pasivo funciona, restricciones producen creatividad)
+- Cada lección conectada con investigaciones específicas del equipo
+
+**Investigación conectada con decisiones:**
+- Cada tesis en research.html ahora tiene línea "This directly led to..." con fondo sage green y borde izquierdo
+- Emiliano UNIOESTE → política de 50km
+- Emiliano UDistrital → diseño climático responsive en Montvento
+- María → framework de integración comunitaria
+- Julián UDistrital → framework de viabilidad financiera
+- Julián UniAgustiniana → filosofía de diseño centrada en humanos
+
+**Correcciones de contenido:**
+- Guide: "Free Download" → "Free After Registration" (hero tag + meta description)
+- Legacy: "Free Download" → "Free After Registration"
+- Contact: Proyectos dropdown actualizado (solo Montvento + General + Partnership)
+- Guide/Legacy: Eliminados Costa Rica y Panamá de dropdown de países
+- Index: Founder teaser link apunta a about.html (no founders.html)
 
 ### FASE 2 (Futuro)
 - [ ] Case studies por proyecto (antes/después, datos reales)
