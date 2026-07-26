@@ -1,4 +1,4 @@
-/*============================
+﻿/*============================
    CHIHIZA — Global Styles
    Peaceful White / Natural Depth
 =============================*/
@@ -951,6 +951,21 @@ img {
   font-size: 1.2rem;
   color: var(--text);
   font-weight: 400;
+}
+
+/* Founder Photo Grid */
+.founder-photo-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.founder-photo-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  object-fit: cover;
 }
 
 /* Founder Quote Block */
@@ -3269,291 +3284,107 @@ img {
 }
 
 /*============================
-   RESPONSIVE
-============================= */
+   RESPONSIVE — Complete Mobile Rebrand
+============================== */
 
+/* ---- TABLET (max-width: 1024px) ---- */
 @media (max-width: 1024px) {
-  .philosophy-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .project-card {
-    grid-template-columns: 1fr;
-    min-height: auto;
-  }
-
-  .project-card:nth-child(even) {
-    direction: ltr;
-  }
-
-  .project-image {
-    height: 300px;
-  }
-
-  .project-info {
-    padding: 2.5rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat {
-    border-bottom: 1px solid var(--border-light);
-  }
-
-  .about-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-
-  .project-details {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .invest-steps {
-    grid-template-columns: 1fr;
-  }
-
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .philosophy-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .project-card { grid-template-columns: 1fr; min-height: auto; }
+  .project-card:nth-child(even) { direction: ltr; }
+  .project-image { height: 300px; }
+  .project-info { padding: 2.5rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stat { border-bottom: 1px solid var(--border-light); }
+  .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .project-details { grid-template-columns: 1fr; gap: 2rem; }
+  .invest-steps { grid-template-columns: 1fr; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---- MOBILE (max-width: 768px) ---- */
 @media (max-width: 768px) {
   :root {
-    --section-padding: var(--section-padding-mobile);
+    --section-padding: 3.5rem 1.25rem;
   }
 
-  .header {
-    padding: 1rem 1.5rem;
-  }
-
-  .header.scrolled {
-    padding: 0.8rem 1.5rem;
-  }
+  /* --- HEADER / NAV --- */
+  .header { padding: 0.9rem 1.25rem; }
+  .header.scrolled { padding: 0.7rem 1.25rem; }
+  .logo { font-size: 1.2rem; letter-spacing: 2px; }
 
   .nav {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(248, 247, 244, 0.98);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
+    gap: 1.8rem;
     z-index: 999;
   }
-
-  .nav.active {
-    display: flex;
-  }
-
+  .nav.active { display: flex; }
   .nav a {
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 3px;
+    padding: 0.5rem 0;
   }
-
   .nav .nav-cta {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     letter-spacing: 2px;
-    padding: 0.8rem 2rem;
-    margin-top: 1rem;
-    background: var(--whatsapp);
-    border-color: var(--whatsapp);
+    padding: 0.75rem 1.8rem;
+    margin-top: 0.5rem;
   }
-
-  .nav .nav-cta:hover {
-    background: var(--whatsapp-hover);
-    border-color: var(--whatsapp-hover);
-    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  .nav .team-tools-toggle {
+    width: 52px;
+    height: 52px;
+    margin-top: 0.5rem;
   }
+  .nav .team-tools-toggle svg { width: 22px; height: 22px; }
 
-  .menu-toggle {
-    display: flex;
-    z-index: 1001;
+  .menu-toggle { display: flex; z-index: 1001; }
+  .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+  /* --- HERO --- */
+  .hero { min-height: 100svh; }
+  .hero-content { padding: 0 1.25rem; }
+  .hero-title {
+    font-size: clamp(1.9rem, 7vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 1rem;
   }
-
-  .menu-toggle.active span:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
+  .hero-sub { font-size: 0.9rem; line-height: 1.7; margin-bottom: 2rem; }
+  .hero-tag {
+    font-size: 0.55rem;
+    letter-spacing: 3px;
+    padding: 0.35rem 0.9rem;
+    margin-bottom: 1.2rem;
   }
-
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-
-  .menu-toggle.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -4px);
-  }
-
   .hero-actions {
     flex-direction: column;
-    align-items: center;
+    gap: 0.7rem;
+    width: 100%;
   }
-
-  .project-info {
-    padding: 2rem 1.5rem;
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.72rem;
   }
+  .scroll-indicator { display: none; }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .stat {
-    border-right: none;
-  }
-
-  .footer {
-    padding: 3rem 1.5rem;
-  }
-
-  .footer-inner {
-    flex-direction: column;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
-  }
-
-  .project-details {
-    padding: 3rem 1.5rem;
-  }
-
-  .project-gallery {
-    padding: 0 1.5rem 3rem;
-  }
-
-  .about-grid {
-    padding: 3rem 1.5rem;
-  }
-
-  .contact-grid {
-    padding: 3rem 1.5rem;
-  }
-
-  .project-hero-overlay {
-    padding: 2rem 1.5rem;
-  }
-
-  .about-hero-content {
-    padding: 2rem 1.5rem;
-  }
-
-  .project-cta {
-    padding: 4rem 1.5rem;
-  }
-
-  .invest-form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .invest-form-full {
-    grid-column: span 1;
-  }
-
-  .invest-form-card {
-    padding: 2rem;
-    border-radius: 12px;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .whatsapp-float {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    width: 50px;
-    height: 50px;
-  }
-
-  .whatsapp-float svg {
-    width: 24px;
-    height: 24px;
-  }
-
-  .cta-image-section {
-    padding: 5rem 1.5rem;
-  }
-
-  .projects-catalog {
-    grid-template-columns: 1fr;
-    padding: 0 1.5rem;
-  }
-
-  .guide-content,
-  .legacy-content {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-    padding: 4rem 1.5rem;
-  }
-
-  .guide-sidebar,
-  .legacy-sidebar {
-    position: static;
-  }
-
-  .guide-cta,
-  .legacy-cta {
-    padding: 4rem 1.5rem;
-  }
-
-  .email-capture-form {
-    flex-direction: column;
-  }
-}
-
-/*============================
-   MOBILE FIXES — Comprehensive
-============================== */
-
-@media (max-width: 768px) {
-  /* Image Dividers */
-  .img-divider {
-    height: 200px;
-    background-attachment: scroll;
-  }
-
-  /* Play button in mobile nav */
-  .nav .team-tools-toggle {
-    width: 56px;
-    height: 56px;
-    margin-top: 1rem;
-  }
-
-  .nav .team-tools-toggle svg {
-    width: 22px;
-    height: 22px;
-  }
-
-  /* Hero sections with bg images */
+  /* Hero + all bg image sections: disable parallax on mobile */
   .hero,
   .projects-hero,
   .guide-hero,
-  .legacy-hero {
-    background-size: cover !important;
-    background-position: center !important;
-    background-attachment: scroll !important;
-  }
-
-  /* CTA sections with bg images */
+  .legacy-hero,
   .cta-image-section,
   .legacy-cta,
   .guide-cta {
@@ -3562,18 +3393,118 @@ img {
     background-attachment: scroll !important;
   }
 
+  /* --- SECTIONS --- */
+  .section { padding: 3rem 1.25rem; }
+  .section-tag { font-size: 0.55rem; letter-spacing: 3px; margin-bottom: 0.8rem; }
+  .section-title { font-size: clamp(1.5rem, 5.5vw, 2rem); line-height: 1.2; margin-bottom: 1rem; }
+  .section-desc { font-size: 0.88rem; line-height: 1.75; }
+
+  /* --- IMAGE DIVIDERS --- */
+  .img-divider { height: 140px; background-attachment: scroll; }
+
+  /* --- BUTTONS --- */
+  .btn { padding: 0.8rem 1.6rem; font-size: 0.7rem; letter-spacing: 1.2px; }
+
+  /* --- FOUNDER TEASER (index.html) --- */
+  .founder-teaser { grid-template-columns: 1fr; min-height: auto; }
+  .founder-teaser-image { min-height: 240px; }
+  .founder-teaser-content { padding: 2rem 1.5rem; }
+  .founder-teaser-name { font-size: 1.5rem; }
+  .founder-teaser-quote { font-size: 0.95rem; }
+
+  /* --- FOUNDER PHOTOS (about.html) --- */
+  .founder-photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    justify-items: center;
+  }
+  .founder-photo-grid img { max-width: 180px; height: auto; }
+
+  /* --- FOUNDER NARRATIVE --- */
+  .founder-narrative p { font-size: 0.95rem; line-height: 1.75; }
+  .founder-narrative p:first-child { font-size: 1.05rem; }
+  .founder-quote-block { padding: 1.5rem; margin-top: 2rem; }
+  .founder-quote-text { font-size: 1.05rem; line-height: 1.55; }
+
+  /* --- PROJECT NARRATIVE (Montvento) --- */
+  .project-narrative p { font-size: 0.95rem; line-height: 1.75; margin-bottom: 1.2rem; }
+  .project-narrative-first { font-size: 1.05rem !important; }
+  .project-specs { grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem; }
+  .project-spec-value { font-size: 1.3rem; }
+  .project-spec-label { font-size: 0.65rem; }
+
+  /* --- HOW IT WORKS (invest steps) --- */
+  .invest-steps { gap: 1rem; }
+  .invest-step { padding: 1.5rem; }
+  .invest-step-num { font-size: 1.8rem; }
+  .invest-step-title { font-size: 1rem; }
+  .invest-step-desc { font-size: 0.85rem; line-height: 1.65; }
+
+  /* --- FORMS --- */
+  .invest-form-card { padding: 1.5rem; border-radius: 12px; }
+  .invest-form-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .invest-form-full { grid-column: span 1; }
+  .form-group label { font-size: 0.72rem; margin-bottom: 0.3rem; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px; /* Prevents iOS zoom */
+    padding: 0.75rem 1rem;
+  }
+  .form-group textarea { min-height: 100px; }
+  .email-capture-form { flex-direction: column; gap: 0.6rem; }
+  .email-capture-form input,
+  .email-capture-form select,
+  .email-capture-form button {
+    width: 100%;
+    font-size: 16px;
+    padding: 0.75rem 1rem;
+  }
+
+  /* --- CONTACT --- */
+  .contact-grid { padding: 3rem 1.25rem; gap: 2.5rem; }
+  .contact-methods { gap: 0.8rem; }
+  .contact-method { padding: 1rem; gap: 0.8rem; }
+  .contact-icon { width: 36px; height: 36px; }
+  .contact-label { font-size: 0.75rem; }
+  .contact-value { font-size: 0.85rem; }
+
+  /* --- FAQ --- */
+  .faq-question { padding: 1.2rem 0; }
+  .faq-question h3 { font-size: 0.9rem; line-height: 1.4; }
+  .faq-answer p { font-size: 0.88rem; line-height: 1.7; }
+
+  /* --- STATS --- */
+  .stats { padding: 2.5rem 1.25rem; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 0; }
+  .stat { padding: 1.2rem 0.8rem; text-align: center; }
+  .stat-number { font-size: 1.6rem; }
+  .stat-label { font-size: 0.65rem; }
+
+  /* --- CTA IMAGE SECTION --- */
+  .cta-image-section { padding: 4rem 1.25rem; min-height: auto; }
+  .cta-image-content .section-title { font-size: 1.5rem; }
+  .cta-image-content .section-desc { font-size: 0.88rem; }
+
+  /* --- PROJECTS --- */
+  .projects-hero { min-height: 45vh; }
+  .projects-hero-content { padding: 1.5rem 1.25rem; }
+  .projects-catalog { gap: 1.2rem; padding: 0 1.25rem; }
+  .catalog-card { flex-direction: column; margin: 0; }
+  .catalog-image { height: 180px; }
+  .catalog-info { padding: 1rem; }
+  .catalog-name { font-size: 1.1rem; }
+  .catalog-subtitle { font-size: 0.8rem; }
+  .catalog-location { font-size: 0.75rem; }
+
   /* Projects slider — horizontal swipe */
   .projects-slider {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
-
-  .projects-slider::-webkit-scrollbar {
-    display: none;
-  }
-
+  .projects-slider::-webkit-scrollbar { display: none; }
   .slider-track {
     display: flex;
     gap: 1.2rem;
@@ -3581,344 +3512,154 @@ img {
     width: max-content;
     animation: none;
   }
+  .slider-card { flex: 0 0 280px; min-width: 280px; }
 
-  .slider-card {
-    flex: 0 0 280px;
-    min-width: 280px;
-  }
+  /* --- PROJECT DETAILS / GALLERY --- */
+  .project-details { padding: 3rem 1.25rem; }
+  .project-gallery { padding: 0 1.25rem 3rem; }
+  .project-hero-overlay { padding: 2rem 1.25rem; }
+  .project-cta { padding: 4rem 1.25rem; }
 
-  /* Hero content */
-  .hero-content {
-    padding: 0 1.5rem;
-  }
+  /* --- ABOUT --- */
+  .about-grid { padding: 3rem 1.25rem; }
+  .about-hero-content { padding: 2rem 1.25rem; }
 
-  .hero-title {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-
-  .hero-sub {
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .hero-tag {
-    font-size: 0.6rem;
-    letter-spacing: 3px;
-    padding: 0.4rem 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
-  }
-
-  .hero-actions .btn {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .scroll-indicator {
-    display: none;
-  }
-
-  /* Sections */
-  .section {
-    padding: 4rem 1.5rem;
-  }
-
-  .section-tag {
-    font-size: 0.6rem;
-    letter-spacing: 3px;
-  }
-
-  .section-title {
-    font-size: clamp(1.6rem, 6vw, 2.2rem);
-  }
-
-  .section-desc {
-    font-size: 0.9rem;
-    line-height: 1.8;
-  }
-
-  /* Stats */
-  .stats {
-    padding: 3rem 1.5rem;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
-  }
-
-  .stat {
-    padding: 1.5rem 1rem;
-    text-align: center;
-  }
-
-  .stat-number {
-    font-size: 1.8rem;
-  }
-
-  .stat-label {
-    font-size: 0.7rem;
-  }
-
-  /* Invest Steps */
-  .invest-steps {
-    gap: 1.5rem;
-  }
-
-  .invest-step {
-    padding: 1.5rem;
-  }
-
-  .invest-step-num {
-    font-size: 2rem;
-  }
-
-  /* Form */
-  .invest-form-card {
-    padding: 1.5rem;
-  }
-
-  .form-group label {
-    font-size: 0.75rem;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    font-size: 16px; /* Prevents iOS zoom */
-  }
-
-  /* Testimonials */
-  .testimonial-card {
-    padding: 1.5rem;
-  }
-
-  .testimonial-quote {
-    font-size: 0.9rem;
-    line-height: 1.7;
-  }
-
-  /* FAQ */
-  .faq-question h3 {
-    font-size: 0.95rem;
-  }
-
-  /* Team */
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-  }
-
-  .team-card {
-    padding: 1.5rem;
-    text-align: center;
-  }
-
-  /* Contact */
-  .contact-grid {
-    padding: 3rem 1.5rem;
-  }
-
-  .contact-method {
-    padding: 1rem;
-  }
-
-  .contact-icon {
-    width: 40px;
-    height: 40px;
-  }
-
-  /* CTA image section */
-  .cta-image-section {
-    padding: 4rem 1.5rem;
-    min-height: auto;
-  }
-
-  .cta-image-content .section-title {
-    font-size: 1.6rem;
-  }
-
-  /* Projects hero */
-  .projects-hero {
-    min-height: 50vh;
-  }
-
-  .projects-hero-content {
-    padding: 2rem 1.5rem;
-  }
-
-  /* Projects catalog */
-  .projects-catalog {
-    gap: 1.5rem;
-    padding: 0 1.5rem;
-  }
-
-  .catalog-card {
-    flex-direction: column;
-  }
-
-  .catalog-image {
-    height: 200px;
-  }
-
-  .catalog-info {
-    padding: 1.2rem;
-  }
-
-  .catalog-name {
-    font-size: 1.2rem;
-  }
-
-  /* Guide / Legacy content */
+  /* --- GUIDE / LEGACY --- */
+  .guide-hero,
+  .legacy-hero { min-height: 55vh; }
+  .guide-hero-content,
+  .legacy-hero-content { padding: 2rem 1.25rem; }
+  .guide-hero-title,
+  .legacy-hero-title { font-size: 1.8rem; }
   .guide-content,
   .legacy-content {
     grid-template-columns: 1fr;
-    padding: 3rem 1.5rem;
-  }
-
-  .guide-text,
-  .legacy-text {
-    padding: 0;
-  }
-
-  .guide-text h2,
-  .legacy-text h2 {
-    font-size: 1.5rem;
-  }
-
-  .guide-sidebar,
-  .legacy-sidebar {
-    position: static;
-  }
-
-  .guide-cta,
-  .legacy-cta {
-    padding: 3rem 1.5rem;
-  }
-
-  .guide-hero,
-  .legacy-hero {
-    min-height: 60vh;
-  }
-
-  .guide-hero-content,
-  .legacy-hero-content {
-    padding: 2rem 1.5rem;
-  }
-
-  .guide-hero-title,
-  .legacy-hero-title {
-    font-size: 2rem;
-  }
-
-  /* Email capture */
-  .email-capture-form {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .email-capture-form input,
-  .email-capture-form button {
-    width: 100%;
-  }
-
-  /* WhatsApp float */
-  .whatsapp-float {
-    bottom: 1.2rem;
-    right: 1.2rem;
-    width: 52px;
-    height: 52px;
-  }
-
-  .whatsapp-float svg {
-    width: 26px;
-    height: 26px;
-  }
-
-  /* Footer */
-  .footer {
-    padding: 3rem 1.5rem;
-  }
-
-  .footer-inner {
+    padding: 2.5rem 1.25rem;
     gap: 2rem;
   }
+  .guide-text,
+  .legacy-text { padding: 0; }
+  .guide-text h2,
+  .legacy-text h2 { font-size: 1.35rem; }
+  .guide-sidebar,
+  .legacy-sidebar { position: static; }
+  .guide-cta,
+  .legacy-cta { padding: 3rem 1.25rem; }
 
-  .footer-col {
-    gap: 0.6rem;
-  }
+  /* --- RESEARCH CARDS --- */
+  .research-card { padding: 1.5rem; margin-bottom: 2rem; }
+  .research-title { font-size: 1.2rem; line-height: 1.35; }
+  .research-subtitle { font-size: 0.9rem !important; }
+  .research-meta { grid-template-columns: 1fr; gap: 0.8rem; }
+  .research-abstract p { font-size: 0.9rem; line-height: 1.7; }
+  .research-actions { flex-direction: column; gap: 0.6rem; }
+  .research-actions .btn { width: 100%; justify-content: center; }
+  .research-connection-grid { grid-template-columns: 1fr; gap: 0; }
 
-  .footer-col a {
-    font-size: 0.85rem;
+  /* --- PROCESS PAGE TIMELINE --- */
+  .process-step { padding-left: 2rem; border-left: 2px solid var(--accent-light); }
+
+  /* --- TESTIMONIALS --- */
+  .testimonial-card { padding: 1.5rem; }
+  .testimonial-quote { font-size: 0.9rem; line-height: 1.7; }
+
+  /* --- TEAM --- */
+  .team-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .team-card { padding: 1.5rem; text-align: center; }
+
+  /* --- CREDENTIALS --- */
+  .credentials-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+  .credential-card { padding: 1.5rem; }
+
+  /* --- GUIDE / LEGACY CARDS --- */
+  .guide-card,
+  .legacy-card { padding: 1.5rem; }
+
+  /* --- TEAM TOOLS PANEL --- */
+  .team-tools-panel { width: 100%; border-radius: 0; }
+
+  /* --- FOOTER --- */
+  .footer { padding: 2.5rem 1.25rem; }
+  .footer-inner {
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
   }
+  .footer-brand { max-width: 100%; }
+  .footer-col { gap: 0.5rem; }
+  .footer-col a { font-size: 0.82rem; margin-bottom: 0.4rem; }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 0.8rem;
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+  }
+  .footer-copy { font-size: 0.7rem; }
+  .footer-socials { gap: 1rem; }
+  .footer-socials a { font-size: 0.7rem; }
+
+  /* --- WHATSAPP FLOAT --- */
+  .whatsapp-float { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
+  .whatsapp-float svg { width: 24px; height: 24px; }
 }
 
+/* ---- SMALL MOBILE (max-width: 480px) ---- */
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 1.8rem;
+  :root {
+    --section-padding: 2.5rem 1rem;
   }
 
-  .section-title {
-    font-size: 1.5rem;
-  }
+  .header { padding: 0.8rem 1rem; }
+  .header.scrolled { padding: 0.6rem 1rem; }
+  .logo { font-size: 1.1rem; letter-spacing: 1.5px; }
 
-  .stat-number {
-    font-size: 1.6rem;
-  }
+  .nav a { font-size: 0.9rem; letter-spacing: 2.5px; }
 
-  .img-divider {
-    height: 150px;
-  }
+  .hero-title { font-size: 1.75rem; }
+  .hero-sub { font-size: 0.85rem; }
+  .section { padding: 2.5rem 1rem; }
+  .section-title { font-size: 1.4rem; }
+  .section-desc { font-size: 0.85rem; }
 
-  .slider-card {
-    flex: 0 0 260px;
-    min-width: 260px;
-  }
+  .img-divider { height: 110px; }
 
-  .catalog-card {
-    margin: 0;
-  }
+  .btn { padding: 0.75rem 1.3rem; font-size: 0.68rem; }
 
-  .invest-step {
-    padding: 1.2rem;
-  }
+  .founder-photo-grid img { max-width: 150px; }
+  .founder-narrative p { font-size: 0.9rem; }
+  .founder-narrative p:first-child { font-size: 1rem; }
+  .founder-quote-text { font-size: 0.95rem; }
 
-  .team-card {
-    padding: 1.2rem;
-  }
+  .project-narrative p { font-size: 0.9rem; }
+  .project-specs { grid-template-columns: 1fr 1fr; gap: 0.8rem; }
+  .project-spec-value { font-size: 1.1rem; }
 
-  .founder-photo-grid {
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-  }
+  .invest-step { padding: 1.2rem; }
+  .invest-step-num { font-size: 1.5rem; }
 
-  .founder-photo-grid img {
-    max-width: 200px;
-    margin: 0 auto;
-  }
-}
+  .faq-question h3 { font-size: 0.85rem; }
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
+  .stat-number { font-size: 1.4rem; }
+  .stat-label { font-size: 0.6rem; }
 
-  .section-title {
-    font-size: 1.8rem;
-  }
+  .cta-image-section { padding: 3rem 1rem; }
+  .cta-image-content .section-title { font-size: 1.3rem; }
 
-  .stat-number {
-    font-size: 2.2rem;
-  }
+  .catalog-image { height: 160px; }
 
-  .slider-card {
-    flex: 0 0 280px;
-  }
+  .guide-hero-title,
+  .legacy-hero-title { font-size: 1.5rem; }
+  .guide-content,
+  .legacy-content { padding: 2rem 1rem; }
+
+  .research-card { padding: 1.2rem; }
+  .research-title { font-size: 1.1rem; }
+
+  .footer { padding: 2rem 1rem; }
+
+  .whatsapp-float { bottom: 1rem; right: 1rem; width: 46px; height: 46px; }
+  .whatsapp-float svg { width: 22px; height: 22px; }
 }
 
 /*============================
