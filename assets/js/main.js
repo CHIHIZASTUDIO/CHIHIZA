@@ -215,6 +215,17 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
     });
+  // FAQ accordion
+  var faqItems = document.querySelectorAll('.faq-item');
+  if (faqItems.length) {
+    faqItems.forEach(function (item) {
+      var question = item.querySelector('.faq-question');
+      question.addEventListener('click', function () {
+        var isActive = item.classList.contains('active');
+        faqItems.forEach(function (el) { el.classList.remove('active'); });
+        if (!isActive) item.classList.add('active');
+      });
+    });
   }
 
 })();
