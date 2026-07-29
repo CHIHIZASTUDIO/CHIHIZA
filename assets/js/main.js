@@ -215,6 +215,8 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape' && overlay.classList.contains('active')) closeLightbox();
     });
+  }
+
   // FAQ accordion
   var faqItems = document.querySelectorAll('.faq-item');
   if (faqItems.length) {
