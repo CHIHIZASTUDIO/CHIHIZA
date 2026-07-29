@@ -8,10 +8,17 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">
-            <h1>CHIHIZA</h1>
-            <p>Digital Twin | Ficha Técnica de Proyecto</p>
-        </div>
+<div class="logo">
+    <h1>CHIHIZA</h1>
+    <p>Digital Twin | Ficha Técnica de Proyecto</p>
+</div>
+<div id="dbBar" style="display:none;background:rgba(107,143,113,.1);border:1px solid #6b8f71;border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:10px;align-items:center;justify-content:space-between;font-family:'Segoe UI',sans-serif">
+  <span id="dbInfo" style="color:#6b8f71;font-weight:600"></span>
+  <div style="display:flex;gap:4px">
+    <button onclick="saveDT()" style="padding:4px 10px;font-size:9px;background:#6b8f71;color:#fff;border:none;border-radius:6px;cursor:pointer;font-weight:600">Guardar</button>
+    <button onclick="loadDT()" style="padding:4px 10px;font-size:9px;background:transparent;color:#6b8f71;border:1px solid #6b8f71;border-radius:6px;cursor:pointer;font-weight:600">Recargar</button>
+  </div>
+</div>
         <header>
             <div class="header-content">
                 <h1>FICHA TÉCNICA COMPLETA DE PROYECTO</h1>
@@ -19,6 +26,7 @@
             </div>
             <div class="header-actions">
                 <button id="btn-load" class="btn-secondary">📂 Cargar Proyecto</button>
+                <button id="btn-save-db" class="btn-primary" style="background:#2ecc71">💾 Guardar en BD</button>
                 <button id="btn-export-txt" class="btn-primary">📄 Exportar .TXT</button>
                 <button id="btn-export-json" class="btn-primary">📋 Exportar .JSON</button>
             </div>

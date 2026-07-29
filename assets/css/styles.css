@@ -3306,6 +3306,26 @@ img {
 
 /* ---- MOBILE (max-width: 768px) ---- */
 @media (max-width: 768px) {
+  /* Project slides — stacked layout */
+  .pscroll {
+    scroll-snap-type: none;
+    height: auto;
+    overflow-y: visible;
+  }
+  .pslide {
+    height: 60vh;
+    min-height: 340px;
+    scroll-snap-align: none;
+  }
+  .pslide-info {
+    padding: 2rem 1.25rem;
+  }
+  .pslide-name {
+    font-size: clamp(1.4rem, 5vw, 2rem);
+  }
+  .pslide-sub {
+    font-size: 0.8rem;
+  }
   :root {
     --section-padding: 3.5rem 1.25rem;
   }

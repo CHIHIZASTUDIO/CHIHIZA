@@ -82,6 +82,13 @@ html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color
 <body>
 <div class="app">
 <div class="logo"><h1>CHIHIZA</h1><p>Financial Model | Modelo Financiero</p></div>
+<div id="dbBar" style="display:none;background:rgba(107,143,113,.1);border:1px solid var(--accent);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:10px;align-items:center;justify-content:space-between">
+  <span id="dbInfo" style="color:var(--accent);font-weight:600"></span>
+  <div style="display:flex;gap:4px">
+    <button class="btn bp" style="padding:4px 10px;font-size:9px;width:auto" onclick="saveFM()">Guardar</button>
+    <button class="btn bs" style="padding:4px 10px;font-size:9px;width:auto" onclick="loadFM()">Recargar</button>
+  </div>
+</div>
 <div class="pw"><div class="pb"><div class="pf" id="pf"></div></div><div class="pt" id="pt"></div><div class="sd" id="sd"></div></div>
 
 <div class="page active" id="p0">
@@ -202,6 +209,7 @@ e ingresos para CHIHIZA. Incluye analisis de sensibilidad con 3 escenarios.
 <div class="page" id="p7">
 <div id="resultados"></div>
 <div class="row" style="margin-top:16px">
+<button class="btn bp" onclick="saveFM()" id="btnSaveFM" style="display:none">Guardar en BD</button>
 <button class="btn bp" onclick="exportTXT()">Exportar TXT</button>
 <button class="btn bs" onclick="if(confirm('Nuevo modelo?'))location.reload()">Nuevo</button>
 </div>
@@ -512,8 +520,106 @@ var a=document.createElement('a');a.href=URL.createObjectURL(blob);
 a.download='CHIHIZA_FM_'+(d.nombre||'proyecto').replace(/\s+/g,'_')+'.txt';
 a.click()
 }
+// DB INTEGRATION
+const API = 'http://localhost:5000/api';
+let DB_PROJECT_ID = null;
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('project_id');
+  if (pid) {
+    DB_PROJECT_ID = parseInt(pid);
+    document.getElementById('dbBar').style.display = 'flex';
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Conectado a BD';
+    document.getElementById('btnSaveFM').style.display = 'block';
+    loadFM();
+  }
+})();
+
+async function saveFM() {
+  if (!DB_PROJECT_ID) return alert('No hay proyecto vinculado. Abre desde el Dashboard.');
+  var d = collect();
+  var inv = calcInv(d);
+  var chi = calcChi(d);
+  var cli = calcCli(d, inv);
+  // Map fields to DB column names
+  var data = {
+    cliente: d.cliente, ubicacion: d.ubicacion, horizonte: d.horizonte,
+    area_terreno_fm: d.area_terreno, area_const_fm: d.area_const,
+    terreno: d.terreno, imp_transf: d.imp_transf, legales: d.legales,
+    topografia_fm: d.topografia, servicios_fm: d.servicios, otros_terreno: d.otros_terreno,
+    diseno_arq: d.diseno_arq, diseno_int: d.diseno_int, est_struct: d.est_struct,
+    est_topo: d.est_topo, licencia_fm: d.licencia, permisos_fm: d.permisos,
+    construccion: d.construccion, dir_obra: d.dir_obra, gerencia_fm: d.gerencia,
+    contingencia: d.contingencia, predial: d.predial, mantto: d.mantto,
+    venta_estimada: d.venta, tiempo_venta_fm: d.tiempo_venta, comision_venta: d.comision,
+    renta_mensual: d.renta, meses_renta: d.meses_renta,
+    fee_disc: d.fee_disc, fee_dd: d.fee_dd, fee_diseno: d.fee_diseno,
+    fee_gerencia: d.fee_gerencia, comision_chi: d.comision_chi, fee_otros: d.fee_otros,
+    inversion_total: inv.total, roi_cliente: cli.roi, roi_anual: cli.roiAn,
+    utilidad_cliente: cli.utilidad, ingresos_chihiza: chi.total
+  };
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/fm', {
+      method: 'PUT', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw await res.text();
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Guardado en BD';
+  } catch(e) {
+    alert('Error al guardar: ' + e);
+  }
+}
+
+async function loadFM() {
+  if (!DB_PROJECT_ID) return;
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/fm');
+    if (!res.ok) throw await res.text();
+    const data = await res.json();
+    if (!data || Object.keys(data).length === 0) {
+      document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Sin datos previos';
+      return;
+    }
+    var map = {
+      'f_nombre':'nombre', 'f_cliente':'cliente', 'f_ubicacion':'ubicacion',
+      'f_area_terreno':'area_terreno_fm', 'f_area_const':'area_const_fm',
+      'f_horizonte':'horizonte',
+      'f_terreno':'terreno', 'f_imp_transf':'imp_transf', 'f_legales':'legales',
+      'f_topografia':'topografia_fm', 'f_servicios':'servicios_fm', 'f_otros_terreno':'otros_terreno',
+      'f_diseno_arq':'diseno_arq', 'f_diseno_int':'diseno_int', 'f_est_struct':'est_struct',
+      'f_est_topo':'est_topo', 'f_licencia':'licencia_fm', 'f_permisos':'permisos_fm',
+      'f_construccion':'construccion', 'f_dir_obra':'dir_obra', 'f_gerencia':'gerencia_fm',
+      'f_predial':'predial', 'f_mantto':'mantto',
+      'f_venta':'venta_estimada', 'f_tiempo_venta':'tiempo_venta_fm',
+      'f_renta':'renta_mensual', 'f_meses_renta':'meses_renta',
+      'f_fee_disc':'fee_disc', 'f_fee_dd':'fee_dd', 'f_fee_diseno':'fee_diseno',
+      'f_fee_gerencia':'fee_gerencia', 'f_fee_otros':'fee_otros'
+    };
+    Object.entries(map).forEach(([elId, key]) => {
+      var el = document.getElementById(elId);
+      if (el && data[key] !== undefined && data[key] !== null) el.value = data[key];
+    });
+    // Sliders
+    if (data.contingencia !== undefined) {
+      document.getElementById('f_contingencia').value = data.contingencia;
+      document.getElementById('rv-cont').textContent = data.contingencia + '%';
+    }
+    if (data.comision_venta !== undefined) {
+      document.getElementById('f_comision').value = data.comision_venta;
+      document.getElementById('rv-comm').textContent = data.comision_venta + '%';
+    }
+    if (data.comision_chi !== undefined) {
+      document.getElementById('f_comision_chi').value = data.comision_chi;
+      document.getElementById('rv-comp').textContent = data.comision_chi + '%';
+    }
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Datos cargados';
+  } catch(e) {
+    console.error('Error loading FM:', e);
+  }
+}
 
 updProg();
+
 </script>
 </body>
 </html>

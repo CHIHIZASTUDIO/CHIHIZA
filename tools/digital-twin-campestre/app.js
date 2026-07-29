@@ -49,6 +49,7 @@ function initCalculations() {
 function initExport() {
     document.getElementById('btn-export-txt').addEventListener('click', exportTXT);
     document.getElementById('btn-export-json').addEventListener('click', exportJSON);
+    document.getElementById('btn-save-db').addEventListener('click', saveDT);
 }
 
 function initLoad() {
@@ -1117,4 +1118,53 @@ function loadFromJSON(data) {
     document.getElementById('lotLength').dispatchEvent(new Event('input'));
     document.getElementById('levels').dispatchEvent(new Event('input'));
     document.getElementById('totalArea').dispatchEvent(new Event('input'));
+}
+
+// DB INTEGRATION
+const API = 'http://localhost:5000/api';
+let DB_PROJECT_ID = null;
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('project_id');
+  if (pid) {
+    DB_PROJECT_ID = parseInt(pid);
+    var bar = document.getElementById('dbBar');
+    if (bar) {
+      bar.style.display = 'flex';
+      document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Conectado a BD';
+      loadDT();
+    }
+  }
+})();
+
+async function saveDT() {
+  if (!DB_PROJECT_ID) return alert('No hay proyecto vinculado. Abre desde el Dashboard.');
+  var data = collectData();
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/dt', {
+      method: 'PUT', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw await res.text();
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Guardado en BD';
+  } catch(e) {
+    alert('Error al guardar: ' + e);
+  }
+}
+
+async function loadDT() {
+  if (!DB_PROJECT_ID) return;
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/dt');
+    if (!res.ok) throw await res.text();
+    const data = await res.json();
+    if (!data || Object.keys(data).length === 0) {
+      document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Sin datos previos';
+      return;
+    }
+    loadFromJSON(data);
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Datos cargados';
+  } catch(e) {
+    console.error('Error loading DT:', e);
+  }
 }

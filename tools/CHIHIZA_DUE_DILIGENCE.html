@@ -94,6 +94,13 @@ html,body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color
 <body>
 <div class="app">
 <div class="logo"><h1>CHIHIZA</h1><p>Due Diligence | Analisis de Terreno</p></div>
+<div id="dbBar" style="display:none;background:rgba(107,143,113,.1);border:1px solid var(--accent);border-radius:8px;padding:8px 12px;margin-bottom:10px;font-size:10px;align-items:center;justify-content:space-between">
+  <span id="dbInfo" style="color:var(--accent);font-weight:600"></span>
+  <div style="display:flex;gap:4px">
+    <button class="btn bp" style="padding:4px 10px;font-size:9px;width:auto" onclick="saveDD()">Guardar</button>
+    <button class="btn bs" style="padding:4px 10px;font-size:9px;width:auto" onclick="loadDD()">Recargar</button>
+  </div>
+</div>
 <div class="pw"><div class="pb"><div class="pf" id="pf"></div></div><div class="pt" id="pt"></div><div class="sd" id="sd"></div></div>
 
 <!-- PAGE 0: WELCOME -->
@@ -305,6 +312,7 @@ infraestructura, mercado y riesgos. Cada verificacion genera un puntaje que dete
 <div class="page" id="p10">
 <div id="veredicto"></div>
 <div class="row" style="margin-top:16px">
+<button class="btn bp" onclick="saveDD()" id="btnSaveDD" style="display:none">Guardar en BD</button>
 <button class="btn bp" onclick="exportTXT()">Exportar Due Diligence TXT</button>
 <button class="btn bs" onclick="resetAll()">Nuevo Terreno</button>
 </div>
@@ -681,8 +689,104 @@ a.download=`CHIHIZA_DD_${(D.ref_terreno||'terreno').replace(/\s+/g,'_')}_${new D
 a.click()}
 
 function resetAll(){if(!confirm('Nuevo terreno?'))return;location.reload()}
+// DB INTEGRATION
+const API = 'http://localhost:5000/api';
+let DB_PROJECT_ID = null;
+(function(){
+  const params = new URLSearchParams(window.location.search);
+  const pid = params.get('project_id');
+  if (pid) {
+    DB_PROJECT_ID = parseInt(pid);
+    document.getElementById('dbBar').style.display = 'flex';
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Conectado a BD';
+    document.getElementById('btnSaveDD').style.display = 'block';
+    loadDD();
+  }
+})();
+
+async function saveDD() {
+  if (!DB_PROJECT_ID) return alert('No hay proyecto vinculado. Abre desde el Dashboard.');
+  collect();
+  const sc = calcScore();
+  const data = { ...D, ...T, score_total: sc.total, verdict: sc.total >= 80 ? 'APROBADO' : sc.total >= 60 ? 'CONDICIONAL' : 'RECHAZADO' };
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/dd', {
+      method: 'PUT', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(data)
+    });
+    if (!res.ok) throw await res.text();
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Guardado en BD';
+    alert('Datos guardados en la base de datos');
+  } catch(e) {
+    alert('Error al guardar: ' + e);
+  }
+}
+
+async function loadDD() {
+  if (!DB_PROJECT_ID) return;
+  try {
+    const res = await fetch(API + '/projects/' + DB_PROJECT_ID + '/dd');
+    if (!res.ok) throw await res.text();
+    const data = await res.json();
+    if (!data || Object.keys(data).length === 0) {
+      document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Sin datos previos';
+      return;
+    }
+    // Load text inputs
+    const textFields = ['ref_terreno','direccion','municipio','departamento','abogado','obs_legal','representante',
+      'estudios_amb','matricula','folio','numeracion','obs_catastral','tiempo_desplaz','perfil_compradores',
+      'obs_mercado','desc_riesgos'];
+    textFields.forEach(f => {
+      const el = document.getElementById(f);
+      if (el && data[f] !== undefined && data[f] !== null) el.value = data[f];
+    });
+    // Load number inputs
+    const numFields = ['lat','lon','area_total','valor_venta','retiros','coef_const','distancia_ciudad',
+      'precio_m2_comp','num_comparables','tiempo_venta_comp','costo_cerramiento','costo_pozo','costo_energia_conn',
+      'costo_tierras','costo_topografia','costo_licencias','costo_impuestos','costo_mantenimiento'];
+    numFields.forEach(f => {
+      const el = document.getElementById(f);
+      if (el && data[f] !== undefined && data[f] !== null) el.value = data[f];
+    });
+    // Load toggles
+    Object.keys(T).forEach(k => {
+      if (data[k] !== undefined) {
+        T[k] = data[k] ? true : false;
+        const el = document.getElementById('t_' + k);
+        if (el) el.classList.toggle('on', T[k]);
+      }
+    });
+    // Load selections
+    const selMap = {
+      'tipo_compra': 'tipo_compra', 'visa': 'visa', 'uso': 'uso', 'altura': 'altura',
+      'licencia': 'licencia', 'clasif_amb': 'clasif_amb', 'tendencia': 'tendencia',
+      'proyectos_nuevos': 'proyectos_nuevos', 'demanda': 'demanda', 'riesgo_ppal': 'riesgo_ppal'
+    };
+    Object.entries(selMap).forEach(([key, id]) => {
+      if (data[key]) {
+        D[key] = data[key];
+        const parent = document.getElementById(id)?.closest('.opts') || document.querySelector(`[id="${id}"]`)?.closest('.opts');
+        // Mark the selected option
+        document.querySelectorAll(`.opt`).forEach(o => {
+          const onclick = o.getAttribute('onclick') || '';
+          if (onclick.includes(`'${key}'`) && onclick.includes(`'${data[key]}'`)) {
+            o.classList.add('sel');
+          }
+        });
+      }
+    });
+    // Compute precio_m2 if area_total and valor_venta
+    if (data.area_total > 0 && data.valor_venta > 0) {
+      document.getElementById('precio_m2').value = Math.round(data.valor_venta / data.area_total);
+    }
+    document.getElementById('dbInfo').textContent = 'Proyecto #' + DB_PROJECT_ID + ' | Datos cargados';
+  } catch(e) {
+    console.error('Error loading DD:', e);
+  }
+}
 
 updProg();
+
 </script>
 </body>
 </html>

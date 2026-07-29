@@ -11,13 +11,68 @@
   <meta property="og:description" content="CHIHIZA ecological architecture projects in Colombia.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://chihiza.com/projects">
-  <meta property="og:image" content="https://chihiza.com/proyectos/montvento/ChatGPT Image 26 jul 2026, 06_31_54.png">
+  <meta property="og:image" content="https://chihiza.com/proyectos/natauta/120748e2-9c3c-4244-b42c-35c7c60edeb1.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/styles.css">
+  <style>
+    .pscroll {
+      scroll-snap-type: y mandatory;
+      overflow-y: scroll;
+      height: 100vh;
+    }
+    .pslide {
+      scroll-snap-align: start;
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-start;
+      overflow: hidden;
+      text-decoration: none;
+    }
+    .pslide img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .pslide:hover img {
+      transform: scale(1.04);
+    }
+    .pslide-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, rgba(0,0,0,0.35) 0%, transparent 40%, transparent 100%);
+      pointer-events: none;
+    }
+    .pslide-info {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 4rem;
+      pointer-events: none;
+    }
+    .pslide-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      letter-spacing: -0.01em;
+    }
+    .pslide-sub {
+      font-size: clamp(0.85rem, 1.2vw, 1.1rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.5px;
+    }
+  </style>
 </head>
 
 <body>
@@ -33,6 +88,11 @@
       <a href="legacy.html">Legal</a>
       <a href="guide.html">Guide</a>
       <a href="contact.html">Contact</a>
+      <button class="team-tools-toggle" id="teamToolsToggle" aria-label="Start">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <polygon points="6,3 20,12 6,21"/>
+        </svg>
+      </button>
     </nav>
     <button class="menu-toggle" aria-label="Menu">
       <span></span>
@@ -41,87 +101,75 @@
     </button>
   </header>
 
-  <section class="projects-hero" style="background: linear-gradient(160deg, rgba(248,247,244,0.8) 0%, rgba(232,240,233,0.75) 40%, rgba(243,241,236,0.8) 100%), url('proyectos/montvento/ChatGPT Image 26 jul 2026, 06_31_54.png') center/cover no-repeat;">
-    <div class="projects-hero-content">
-      <span class="hero-tag">Case Studies</span>
-      <h1 class="hero-title">Our Projects</h1>
-      <p class="hero-sub">Each project is a conversation between architecture and landscape. Not renders. Real places.</p>
-    </div>
-  </section>
+  <div class="pscroll">
 
-  <section class="section" style="padding-top: 0;">
-    <div class="projects-catalog">
-
-      <a href="projects/natauta.html" class="catalog-card fade-in">
-        <div class="catalog-image">
-          <img src="proyectos/natauta/120748e2-9c3c-4244-b42c-35c7c60edeb1.png" alt="Nataut&aacute;" width="800" height="600" loading="lazy">
-          <span class="catalog-badge">Phase 2 &mdash; Development Ready</span>
-        </div>
-        <div class="catalog-info">
-          <span class="catalog-country">Colombia &middot; La Vega</span>
-          <h3 class="catalog-name">Nataut&aacute;</h3>
-          <p class="catalog-subtitle">Private Nature Reserve &mdash; 15 Luxury Eco-Lodges</p>
-          <p class="catalog-location">La Vega, Cundinamarca &mdash; 22 hectares</p>
-          <div class="catalog-footer">
-            <span class="catalog-price">USD 2,140,000</span>
-            <span class="catalog-roi">Phase 2 Development</span>
-          </div>
-          <span class="catalog-link">View Investment Details</span>
-        </div>
-      </a>
-
-      <a href="projects/la-nuite.html" class="catalog-card fade-in">
-        <div class="catalog-image">
-          <img src="proyectos/la-nuite/862a363f-9075-471b-b624-34c967161cc9.jpg" alt="La Nuite" width="800" height="600" loading="lazy">
-          <span class="catalog-badge">Operating</span>
-        </div>
-        <div class="catalog-info">
-          <span class="catalog-country">Colombia &middot; La Vega</span>
-          <h3 class="catalog-name">La Nuite</h3>
-          <p class="catalog-subtitle">5-Star Luxury Eco-Lodge &mdash; Revenue Generating</p>
-          <p class="catalog-location">La Vega, Cundinamarca &mdash; 1 hectare</p>
-          <div class="catalog-footer">
-            <span class="catalog-price">USD 595,000</span>
-            <span class="catalog-roi">Break-Even &rarr; Premium</span>
-          </div>
-          <span class="catalog-link">View Upgrade Path</span>
-        </div>
-      </a>
-
-      <a href="projects/montvento.html" class="catalog-card fade-in">
-        <div class="catalog-image">
-          <img src="proyectos/montvento/ChatGPT Image 26 jul 2026, 06_31_54.png" alt="Montvento" width="800" height="600" loading="lazy">
-          <span class="catalog-badge">Case Study 001</span>
-        </div>
-        <div class="catalog-info">
-          <span class="catalog-country">Colombia</span>
-          <h3 class="catalog-name">Montvento</h3>
-          <p class="catalog-subtitle">A House Designed to Breathe</p>
-          <p class="catalog-location">Bucaramanga, Santander</p>
-          <div class="catalog-footer">
-            <span class="catalog-price">300m&sup2;</span>
-            <span class="catalog-roi">5 Bedrooms</span>
-          </div>
-          <span class="catalog-link">View Case Study</span>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <section class="cta-image-section fade-in" style="background: linear-gradient(135deg, rgba(26,26,26,0.6) 0%, rgba(26,26,26,0.4) 100%), url('assets/images/bg/img-10.jpg') center/cover no-repeat;">
-    <div class="cta-image-content">
-      <span class="section-tag" style="color: rgba(255,255,255,0.7);">Interested?</span>
-      <h2 class="section-title" style="color: #fff;">Let's talk about<br>your project</h2>
-      <p class="section-desc" style="margin: 0 auto 3rem; color: rgba(255,255,255,0.8);">Our team is ready to listen.</p>
-      <div class="hero-actions">
-        <a href="https://wa.me/573219931029" target="_blank" rel="noopener" class="btn btn-primary">Chat on WhatsApp</a>
-        <a href="contact.html" class="btn btn-outline" style="background: transparent; color: white; border-color: rgba(255,255,255,0.3);">Contact Form</a>
+    <a href="projects/natauta.html" class="pslide">
+      <img src="proyectos/natauta/120748e2-9c3c-4244-b42c-35c7c60edeb1.png" alt="Nataut&aacute;">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">Nataut&aacute;</div>
+        <div class="pslide-sub">Private Nature Reserve &mdash; 22 hectares, Cundinamarca</div>
       </div>
-    </div>
-  </section>
+    </a>
 
-  <footer class="footer">
+    <a href="projects/la-nuite.html" class="pslide">
+      <img src="proyectos/la-nuite/862a363f-9075-471b-b624-34c967161cc9.jpg" alt="La Nuite">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">La Nuite</div>
+        <div class="pslide-sub">5-Star Eco-Lodge &mdash; Revenue generating</div>
+      </div>
+    </a>
+
+    <a href="projects/costaverde.html" class="pslide">
+      <img src="proyectos/costaverde/1.png" alt="CostaVerde">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">CostaVerde</div>
+        <div class="pslide-sub">Pacific Coastal Living &mdash; Panama Oeste</div>
+      </div>
+    </a>
+
+    <a href="projects/el-mirador.html" class="pslide">
+      <img src="proyectos/el-mirador/1.png" alt="El Mirador">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">El Mirador</div>
+        <div class="pslide-sub">Panoramic Valley Residence &mdash; Guatavita</div>
+      </div>
+    </a>
+
+
+    <a href="projects/rio-frio.html" class="pslide">
+      <img src="proyectos/riofrio/1.png" alt="R&iacute;o Fr&iacute;o">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">R&iacute;o Fr&iacute;o</div>
+        <div class="pslide-sub">Mountain Forest Retreat &mdash; Tabio, Cundinamarca</div>
+      </div>
+    </a>
+
+    <a href="projects/montvento.html" class="pslide">
+      <img src="proyectos/montvento/ChatGPT%20Image%2026%20jul%202026%2C%2006_31_54.png" alt="Montvento">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">Montvento</div>
+        <div class="pslide-sub">A House Designed to Breathe &mdash; Bucaramanga</div>
+      </div>
+    </a>
+
+    <a href="projects/la-montana.html" class="pslide">
+      <img src="proyectos/La%20monta%C3%B1a/ChatGPT%20Image%2029%20jul%202026%2C%2016_10_29.png" alt="La Monta&ntilde;a">
+      <div class="pslide-overlay"></div>
+      <div class="pslide-info">
+        <div class="pslide-name">La Monta&ntilde;a</div>
+        <div class="pslide-sub">15 Eco-Lodges &mdash; La Vega, Cundinamarca</div>
+      </div>
+    </a>
+
+  </div>
+
+  <footer class="footer" style="position: relative; z-index: 2;">
     <div class="footer-inner">
       <div class="footer-brand">
         <div class="footer-logo">CHIHIZA</div>
@@ -131,7 +179,12 @@
         <h4>Projects</h4>
         <a href="projects/natauta.html">Nataut&aacute;</a>
         <a href="projects/la-nuite.html">La Nuite</a>
+        <a href="projects/costaverde.html">CostaVerde</a>
+        <a href="projects/el-mirador.html">El Mirador</a>
+
+        <a href="projects/rio-frio.html">R&iacute;o Fr&iacute;o</a>
         <a href="projects/montvento.html">Montvento</a>
+        <a href="projects/la-montana.html">La Monta&ntilde;a</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -143,13 +196,6 @@
     </div>
   </footer>
 
-  <a href="https://wa.me/573219931029" target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-
-  <div class="toast" id="toast"></div>
   <script src="assets/js/main.js"></script>
 </body>
 
